@@ -16,7 +16,6 @@ namespace försök_till_bra_spel
         }
         public void öppnavärld(string FilePath)
         {
-            //int iasd;
             string text = System.IO.File.ReadAllText(@FilePath);
             List<List<int>> VärldsLista = new List<List<int>>();
             int xindex = 0;

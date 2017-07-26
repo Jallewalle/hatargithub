@@ -30,6 +30,8 @@ namespace försök_till_bra_spel
         int gravity = 14;
         int jumpheight = 0;
         Font drawFont = new Font("Arial", 20);
+        #region bildr
+
         Image Grass = försök_till_bra_spel.Properties.Resources.Grass;
         Image Stone = försök_till_bra_spel.Properties.Resources.Stone;
         Image Dirt = försök_till_bra_spel.Properties.Resources.Dirt;
@@ -40,6 +42,8 @@ namespace försök_till_bra_spel
         Image Tbd = försök_till_bra_spel.Properties.Resources.Tbd;
         Image TopWater = försök_till_bra_spel.Properties.Resources.TopWater;
         Image BotWater = försök_till_bra_spel.Properties.Resources.BotWater;
+        #endregion
+
         public Spelvärld()
         {
             InitializeComponent();
