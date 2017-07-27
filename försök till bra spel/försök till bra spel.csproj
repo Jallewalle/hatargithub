@@ -51,6 +51,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Ladda värld.cs" />
+    <Compile Include="minimap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="minimap.Designer.cs">
+      <DependentUpon>minimap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ny värld.cs">
       <SubType>Form</SubType>
     </Compile>

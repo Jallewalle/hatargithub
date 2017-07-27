@@ -17,7 +17,9 @@ namespace försök_till_bra_spel
         Spelvärld spelvärld = new Spelvärld();
         Ladda_värld laddavärld = new Ladda_värld();
         Skapavärld skapavärld = new Skapavärld();
+        minimap map = new minimap();
 
+        string valdmap;
         public Start()
         {
             InitializeComponent();
@@ -64,7 +66,7 @@ namespace försök_till_bra_spel
 
         public void button1_Click(object sender, EventArgs e)
         {
-            string valdmap;
+            
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -81,6 +83,12 @@ namespace försök_till_bra_spel
         private void Start_Activated(object sender, EventArgs e)
         {
             labeltext();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            map.createmap(laddavärld.hämtavärld());
+            
         }
     }
 }

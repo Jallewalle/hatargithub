@@ -94,8 +94,6 @@ namespace försök_till_bra_spel
             return x;
         }
 
-
-
         public string setvärldnamn()
         {
             return name;
