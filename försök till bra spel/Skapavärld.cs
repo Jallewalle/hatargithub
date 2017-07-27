@@ -19,7 +19,7 @@ namespace försök_till_bra_spel
         List<List<int>> VärldsLista = new List<List<int>>();
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
-        //saknas: Flytande öar, maskhål
+        //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
         List<string> Världen = new List<string>();
         int storleken;
@@ -36,6 +36,8 @@ namespace försök_till_bra_spel
         int yplats;
         int cavetopy;
         int caveboty;
+        int islandtopy;
+        int islandboty;
         int addX;
         int addY;
         string WorldName;
@@ -494,7 +496,50 @@ namespace försök_till_bra_spel
         }
         public void floatingislands()
         {
-            //asd
+            int islandlenght = 0;
+            int islandheight = 0;
+            for (int index = 0; index < VärldsLista.Count / 2; index++)
+            {
+                islandlenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
+                islandheight = random.Next(1, 15);
+                islandboty = random.Next(0, VärldsLista.Count/3);
+                islandtopy = islandboty - islandheight;
+                xplats = random.Next(0, VärldsLista[1].Count - islandlenght);
+
+                for (int x = 0; x < islandlenght; x++)
+                {
+                    if (islandboty - islandtopy >= 1)
+                    {
+                        for (int air = islandtopy; air <= islandboty; air++)
+                        {
+                            VärldsLista[air][xplats + x] = 0;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    if (islandboty + 2 - cavetopy >= 0) //om det är 2 mellanrum kan de röra sig fritt
+                    {
+                        islandboty = islandboty + random.Next(0, 3) - 1;
+                        islandtopy = islandtopy + random.Next(0, 3) - 1;
+                    }
+                    else if (caveboty + 1 - cavetopy == 0)
+                    {
+                        if (random.Next(0, 2) == 1) //marken sjunker eller stannar lika
+                        {
+                            islandboty = islandboty + random.Next(0, 2);
+                            islandtopy = islandtopy + random.Next(0, 3) - 1;
+                        }
+                        else //toppen höjs eller stannar lika
+                        {
+                            islandboty = islandboty + random.Next(0, 3) - 1;
+                            islandtopy = islandtopy + random.Next(0, 2) - 1;
+                        }
+                    }
+                }
+
+            }
         }
         public void sparavärlden()
         {
