@@ -13,7 +13,7 @@ namespace försök_till_bra_spel
 
     class Skapavärld
     {
-        Random random = new Random();
+        Random random = new Random(); //random random
         Ladda_värld laddavärld = new Ladda_värld();
         
         List<List<int>> VärldsLista = new List<List<int>>();
