@@ -22,11 +22,12 @@ namespace försök_till_bra_spel
         bool moveDown = false;
         bool jump = false;
         int move;
+
         //default: blockstorlek = 20, width = 60, height = 29
         int updown = 1000;
         int blockstorlek = 10;
         int width = 120;
-        int height = 59;
+        int height = 60;
         int gravity = 14;
         int jumpheight = 0;
         int movespeedx = 20;
@@ -169,6 +170,18 @@ namespace försök_till_bra_spel
                 updown -= movespeedx;
             }
             Refresh();
+        }
+
+        private void Spelvärld_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'z')
+            {
+                blockstorlek = 1;
+                width = 1200;
+                height = 600;
+                movespeedx = 200;
+                movespeedy = 200;
+            }
         }
     }
 }

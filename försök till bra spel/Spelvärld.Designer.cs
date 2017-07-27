@@ -47,6 +47,7 @@
             this.Name = "Spelvärld";
             this.Text = "Spelvärld";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Spelvärld_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Spelvärld_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Spelvärld_KeyUp);
             this.ResumeLayout(false);
 
