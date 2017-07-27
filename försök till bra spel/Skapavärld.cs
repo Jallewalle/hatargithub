@@ -20,7 +20,9 @@ namespace försök_till_bra_spel
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
+        
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
+
         List<string> Världen = new List<string>();
         int storleken;
         int vattenlängd;
