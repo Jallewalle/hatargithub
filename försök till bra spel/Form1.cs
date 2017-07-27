@@ -87,7 +87,8 @@ namespace försök_till_bra_spel
 
         private void button5_Click(object sender, EventArgs e)
         {
-            map.createmap(laddavärld.hämtavärld());  
+            map.Show();
+            map.createmap(laddavärld.hämtavärld());
         }
     }
 }
