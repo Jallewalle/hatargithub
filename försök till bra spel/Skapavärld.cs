@@ -499,15 +499,18 @@ namespace försök_till_bra_spel
                         //}
                     }
                     ExpanderandeVattenX.Add(vattenstart);
-                    ExpanderandeVattenY.Add(yplats);
+                    ExpanderandeVattenY.Add(yplats+1);
                     try
                     {
                         while ((ExpanderandeVattenX[0] + ExpanderandeVattenY[0]) != 0)
                         {
                             for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
                             {
-                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
-                                if (VärldsLista[(ExpanderandeVattenY[i2] +1)][ExpanderandeVattenX[i2]+0] == 0)
+                                if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0)
+                                {
+                                    VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
+                                }
+                                if (VärldsLista[(ExpanderandeVattenY[i2] +1)][ExpanderandeVattenX[i2]] == 0)
                                 {
                                     ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);
                                     ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
@@ -527,6 +530,8 @@ namespace försök_till_bra_spel
                             }
                             ExpanderandeVattenX = ExpanderandeVattenXtemp;
                             ExpanderandeVattenY = ExpanderandeVattenYtemp;
+                            ExpanderandeVattenXtemp.Clear();
+                            ExpanderandeVattenYtemp.Clear();
                             ExpanderandeVattenX.Add(0);
                             ExpanderandeVattenY.Add(0);
                         }
@@ -534,7 +539,6 @@ namespace försök_till_bra_spel
                     }
                     catch (Exception)
                     {
-
                         //
                     }
                     
