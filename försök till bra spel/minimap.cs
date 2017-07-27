@@ -65,7 +65,8 @@ namespace försök_till_bra_spel
 
                 }
             }
-            bmp.Save("F:\\AAAWorlds\\Pictures\\" + name + ".png");
+            bmp.Save("F:\\AAAWorlds\\Textures\\WorldMap" + name + ".png");
         }
     }
+    
 }
