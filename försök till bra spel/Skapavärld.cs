@@ -507,21 +507,21 @@ namespace försök_till_bra_spel
                             for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
                             {
                                 VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
-                                if (VärldsLista[(ExpanderandeVattenX[i2] - 1)][ExpanderandeVattenY[i2]] == 0)
-                                {
-                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
-                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
-                                }
-                                if (VärldsLista[(ExpanderandeVattenX[i2] + 1)][ExpanderandeVattenY[i2]] == 0)
-                                {
-                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
-                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
-
-                                }
-                                if (VärldsLista[ExpanderandeVattenX[i2]][ExpanderandeVattenY[i2] + 1] == 0)
+                                if (VärldsLista[(ExpanderandeVattenY[i2] +1)][ExpanderandeVattenX[i2]+0] == 0)
                                 {
                                     ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);
                                     ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
+                                }
+                                if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0)
+                                {
+                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]-1);
+                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+
+                                }
+                                if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                {
+                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
+                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
                                 }
 
                             }
