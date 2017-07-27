@@ -24,11 +24,14 @@ namespace försök_till_bra_spel
         int move;
         //default: blockstorlek = 20, width = 60, height = 29
         int updown = 1000;
-        int blockstorlek = 20;
-        int width = 60;
-        int height = 29;
+        int blockstorlek = 10;
+        int width = 120;
+        int height = 59;
         int gravity = 14;
         int jumpheight = 0;
+        int movespeedx = 20;
+        int movespeedy = 20;
+
         Font drawFont = new Font("Arial", 20);
         #region bildr
 
@@ -131,15 +134,15 @@ namespace försök_till_bra_spel
         {
             if (moveRight && move < Värld[1].Count - width - 1)
             {
-                move = move + 1;
+                move += movespeedx;
             }
             if (moveLeft && move > 0)
             {
-                move = move - 1;
+                move -= movespeedx;
             }
             if (moveDown && updown < Värld.Count - height - 1)
             {
-                updown = updown + 1;
+                updown += movespeedy;
             }
             if (jump && updown > 0)
             {
@@ -163,7 +166,7 @@ namespace försök_till_bra_spel
             }
             if (moveUp)
             {
-                updown = updown - 1;
+                updown -= movespeedx;
             }
             Refresh();
         }
