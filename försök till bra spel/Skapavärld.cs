@@ -494,46 +494,71 @@ namespace försök_till_bra_spel
                     vattenlängd = vattenslut - vattenstart;
                     for (int index = 0; index <= vattenlängd; index++)
                     {
-                        VärldsLista[yplats][vattenstart + index] = 6;
+                        VärldsLista[yplats][vattenstart + index] = 6; // expanderar vattnet ner, vänster och höger från  y-1 från startpunkten 
                         ExpanderandeVattenX.Clear();
                         ExpanderandeVattenY.Clear();
                         ExpanderandeVattenX.Add(vattenstart + index);
                         ExpanderandeVattenY.Add(yplats + 1);
                         try
                         {
-                            while ((ExpanderandeVattenX[0] + ExpanderandeVattenY[0]) != 0)
-                            {
-                                for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
+                                while ((ExpanderandeVattenX[0] + ExpanderandeVattenY[0]) != 0)
                                 {
-                                    if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0)
+                                    for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
                                     {
-                                        VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
-                                        if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0)
+                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0)
                                         {
-                                            ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);
-                                            ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
+                                            VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
+                                        try
+                                        {
+                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0)
+                                            {
+                                                ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);           // lägger till ytor som ska täckas med vatten i en temporär lista som ska fyllas i nästa tick(när den lopar om while lopen)
+                                                ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
+                                            }
                                         }
-                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0)
+                                        catch (Exception)
                                         {
-                                            ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
-                                            ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
 
+                                           // testar om han inte är utanför mappen och föröker expandera. temporär lösning.
                                         }
-                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                        try
                                         {
-                                            ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
-                                            ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0)
+                                            {
+                                                ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
+                                                ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+
+                                            }
                                         }
+                                        catch (Exception)
+                                        {
+
+                                            //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
+                                        }
+                                        try
+                                        {
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                            {
+                                                ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
+                                                ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+                                            }
+                                        }
+                                        catch (Exception)
+                                        {
+
+                                            //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
+                                        }
+
                                     }
+                                    }
+                                    ExpanderandeVattenX = ExpanderandeVattenXtemp; //listan blir updaterad från temp
+                                    ExpanderandeVattenY = ExpanderandeVattenYtemp;
+                                    ExpanderandeVattenXtemp.Clear();        //tömmer temporära listan efter varje  tick
+                                    ExpanderandeVattenYtemp.Clear();
+                                    ExpanderandeVattenX.Add(0);             //lägger till 0,0 på slutet för att se om expanderavatten är tom
+                                    ExpanderandeVattenY.Add(0);
                                 }
-                                ExpanderandeVattenX = ExpanderandeVattenXtemp;
-                                ExpanderandeVattenY = ExpanderandeVattenYtemp;
-                                ExpanderandeVattenXtemp.Clear();
-                                ExpanderandeVattenYtemp.Clear();
-                                ExpanderandeVattenX.Add(0);
-                                ExpanderandeVattenY.Add(0);
-                            }
-
+                    
                         }
                         catch (Exception)
                         {
