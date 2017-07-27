@@ -28,6 +28,7 @@ namespace försök_till_bra_spel
         List<int> ExpanderandeVattenY = new List<int>();
         List<int> ExpanderandeVattenXtemp = new List<int>();
         List<int> ExpanderandeVattenYtemp = new List<int>();
+        #region variabler
         int storleken;
         int vattenlängd;
         int vattenstart;
@@ -49,6 +50,8 @@ namespace försök_till_bra_spel
         string WorldName;
         string text = "";
         bool stop = false;
+
+        #endregion
 
         public void getStorlek(int x)
         {
