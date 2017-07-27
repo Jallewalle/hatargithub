@@ -18,6 +18,8 @@ namespace försök_till_bra_spel
         
         List<List<int>> VärldsLista = new List<List<int>>();
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
+
+        //saknas: Flytande öar, maskhål
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
         List<string> Världen = new List<string>();
         int storleken;
@@ -489,6 +491,10 @@ namespace försök_till_bra_spel
                     }
                 }
             }
+        }
+        public void floatingislands()
+        {
+            //asd
         }
         public void sparavärlden()
         {
