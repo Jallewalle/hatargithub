@@ -78,6 +78,7 @@ namespace försök_till_bra_spel
                 {
                     VärldsLista[i].Add(0);
                 }
+                return;
             }
         }
         public void skapavärlden()
@@ -238,7 +239,7 @@ namespace försök_till_bra_spel
                         xplats++;
                     }
                 }
-                else if (biome == 7) // ln ökande
+                else if (biome == 7) // ln(x) ökande
                 {
 
                     int längd = random.Next(1, 8);
@@ -247,7 +248,7 @@ namespace försök_till_bra_spel
                         for (int index = 0; index <= i; index++)
                         {
                             VärldsLista[ystart + yplats][xplats] = blocktyp;
-                            if (yplats + ystart > 30)
+                            if (ystart + yplats > 30)
                                 yplats--;
                             else
                             {
