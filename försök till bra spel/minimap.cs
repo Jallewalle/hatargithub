@@ -79,5 +79,4 @@ namespace försök_till_bra_spel
             
         }
     }
-    
 }
