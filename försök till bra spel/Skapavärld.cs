@@ -127,7 +127,7 @@ namespace försök_till_bra_spel
                         }
                         else if (yplats >= (ybredd - ystart) - 1)
                         {
-                            biome = random.Next(2, 4);
+                            biome = random.Next(1, 4);
                             break;
                         }
                         felsök();
@@ -157,7 +157,7 @@ namespace försök_till_bra_spel
                         }
                         else if (yplats >= (ybredd - ystart) - 1)
                         {
-                            biome = random.Next(2, 4);
+                            biome = random.Next(1, 4);
                             break;
                         }
                         felsök();
@@ -571,10 +571,10 @@ namespace försök_till_bra_spel
         {
             int islandlenght = 0;
             int islandheight = 0;
-            for (int index = 0; index < VärldsLista.Count / 1000; index++)
+            for (int index = 0; index < VärldsLista.Count / 500; index++)
             {
                 islandlenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
-                islandheight = random.Next(4, 15);
+                islandheight = random.Next(10, 30);
                 islandboty = random.Next(VärldsLista.Count/40, VärldsLista.Count/4);
                 islandtopy = islandboty - islandheight;
                 xplats = random.Next(0, VärldsLista[1].Count - islandlenght);
