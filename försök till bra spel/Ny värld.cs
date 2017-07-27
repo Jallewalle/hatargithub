@@ -46,45 +46,39 @@ namespace försök_till_bra_spel
         }
         private void uncheck()
         {
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
-            checkBox3.Checked = false;
-            checkBox4.Checked = false;
-            checkBox5.Checked = false;
-            checkBox6.Checked = false;
-            checkBox7.Checked = false;
-            checkBox8.Checked = false;
+            progressBar1.Value = 0;
         }
         private void skapa()
         {
-            skapavärld.getStorlek(storlek);
-            checkBox1.Checked = true;
+            progressBar1.Value = skapavärld.getStorlek(storlek);
+            label2.Text = "Hämtar storlek";
 
             skapavärld.skapavärlden();
-            checkBox2.Checked = true;
+            label2.Text = "Skapar terräng";
 
             name = textBox1.Text;
             skapavärld.getvärldnamn(name);
-            checkBox3.Checked = true;
+            label2.Text = "Namnger";
 
             skapavärld.underworld();
-            checkBox4.Checked = true;
+            label2.Text = "Lägger ut jord och sten";
 
             skapavärld.caves();
-            checkBox5.Checked = true;
+            label2.Text = "Skapar grottor";
 
             skapavärld.floatingislands();
+            label2.Text = "Skapar öar";
 
             skapavärld.mineraler();
-            checkBox6.Checked = true;
+            label2.Text = "Skapar mineraler";
 
             skapavärld.skapavatten();
-            checkBox7.Checked = true;
+            label2.Text = "Skapar vatten";
 
             skapavärld.sparavärlden();
-            checkBox8.Checked = true;
+            label2.Text = "Sparar";
 
-            
+
 
             MessageBox.Show("Sparat");
         }
