@@ -498,11 +498,11 @@ namespace försök_till_bra_spel
         {
             int islandlenght = 0;
             int islandheight = 0;
-            for (int index = 0; index < VärldsLista.Count / 2; index++)
+            for (int index = 0; index < VärldsLista.Count / 1000; index++)
             {
                 islandlenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
                 islandheight = random.Next(1, 15);
-                islandboty = random.Next(VärldsLista.Count/50, VärldsLista.Count/3);
+                islandboty = random.Next(VärldsLista.Count/40, VärldsLista.Count/4);
                 islandtopy = islandboty - islandheight;
                 xplats = random.Next(0, VärldsLista[1].Count - islandlenght);
 
@@ -519,7 +519,7 @@ namespace försök_till_bra_spel
                     {
                         break;
                     }
-                    if (islandboty + 2 - cavetopy >= 0 && islandtopy > 1) //om det är 2 mellanrum kan de röra sig fritt
+                    if (islandboty + 2 - cavetopy >= 0 && islandtopy >= 10) //om det är 2 mellanrum kan de röra sig fritt
                     {
                         islandboty = islandboty + random.Next(0, 3) - 1;
                         islandtopy = islandtopy + random.Next(0, 3) - 1;
