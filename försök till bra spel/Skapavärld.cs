@@ -535,7 +535,7 @@ namespace försök_till_bra_spel
                     catch (Exception)
                     {
 
-                        throw;
+                        //
                     }
                     
                 }

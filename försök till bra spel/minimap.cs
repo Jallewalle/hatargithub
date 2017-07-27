@@ -25,7 +25,7 @@ namespace försök_till_bra_spel
             värld = x;
             name = rand.Next(10000, 100000).ToString();
             Bitmap bmp = new Bitmap(10000, 3000);
-
+            
             for (int i = 0; i < 10000; i++)
             {
                 for (int index = 0; index < 3000; index++)
@@ -44,7 +44,7 @@ namespace försök_till_bra_spel
                     }
                     else if (värld[index][i] == 4)
                     {
-                        bmp.SetPixel(i, index, Color.Brown);
+                        bmp.SetPixel(i, index, Color.SandyBrown);
                     }
                     else if (värld[index][i] == 5)
                     {
@@ -52,7 +52,7 @@ namespace försök_till_bra_spel
                     }
                     else if (värld[index][i] == 6)
                     {
-                        bmp.SetPixel(i, index, Color.Red);
+                        bmp.SetPixel(i, index, Color.Brown);
                     }
                     else if (värld[index][i] == 7 || värld[index][i] == 8)
                     {
@@ -64,8 +64,19 @@ namespace försök_till_bra_spel
                     }
 
                 }
+                if (i % 100 == 0)
+                {
+                    progressBar1.Value += 1;
+                }
+                
             }
-            bmp.Save("F:\\AAAWorlds\\Textures\\WorldMap" + name + ".png");
+            minimap.ActiveForm.Close();
+            bmp.Save("F:\\AAAWorlds\\Textures\\WorldMap\\" + name + ".png");
+        }
+
+        private void minimap_Load(object sender, EventArgs e)
+        {
+            
         }
     }
     

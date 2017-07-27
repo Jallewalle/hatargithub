@@ -75,6 +75,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="minimap.resx">
+      <DependentUpon>minimap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ny värld.resx">
       <DependentUpon>Ny värld.cs</DependentUpon>
     </EmbeddedResource>
