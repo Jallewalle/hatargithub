@@ -502,7 +502,7 @@ namespace försök_till_bra_spel
             {
                 islandlenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
                 islandheight = random.Next(1, 15);
-                islandboty = random.Next(0, VärldsLista.Count/3);
+                islandboty = random.Next(VärldsLista.Count/60, VärldsLista.Count/3);
                 islandtopy = islandboty - islandheight;
                 xplats = random.Next(0, VärldsLista[1].Count - islandlenght);
 
@@ -512,7 +512,7 @@ namespace försök_till_bra_spel
                     {
                         for (int air = islandtopy; air <= islandboty; air++)
                         {
-                            VärldsLista[air][xplats + x] = 0;
+                            VärldsLista[air][xplats + x] = 1;
                         }
                     }
                     else

@@ -73,6 +73,8 @@ namespace försök_till_bra_spel
             skapavärld.caves();
             checkBox5.Checked = true;
 
+            skapavärld.floatingislands();
+
             skapavärld.mineraler();
             checkBox6.Checked = true;
 
