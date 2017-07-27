@@ -492,6 +492,10 @@ namespace försök_till_bra_spel
                 }
             }
         }
+        public void floatingislands()
+        {
+            //asd
+        }
         public void sparavärlden()
         {
             int temp = 1;
