@@ -20,7 +20,9 @@ namespace försök_till_bra_spel
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
+        
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
+
         List<string> Världen = new List<string>();
         List<int> ExpanderandeVattenX = new List<int>();
         List<int> ExpanderandeVattenY = new List<int>();
@@ -543,11 +545,11 @@ namespace försök_till_bra_spel
         {
             int islandlenght = 0;
             int islandheight = 0;
-            for (int index = 0; index < VärldsLista.Count / 2; index++)
+            for (int index = 0; index < VärldsLista.Count / 1000; index++)
             {
                 islandlenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
-                islandheight = random.Next(1, 15);
-                islandboty = random.Next(VärldsLista.Count/50, VärldsLista.Count/3);
+                islandheight = random.Next(4, 15);
+                islandboty = random.Next(VärldsLista.Count/40, VärldsLista.Count/4);
                 islandtopy = islandboty - islandheight;
                 xplats = random.Next(0, VärldsLista[1].Count - islandlenght);
 
@@ -564,12 +566,12 @@ namespace försök_till_bra_spel
                     {
                         break;
                     }
-                    if (islandboty + 2 - cavetopy >= 0 && islandtopy > 1) //om det är 2 mellanrum kan de röra sig fritt
+                    if (islandboty + 2 - islandtopy >= 0 && islandtopy >= 10) //om det är 2 mellanrum kan de röra sig fritt
                     {
                         islandboty = islandboty + random.Next(0, 3) - 1;
                         islandtopy = islandtopy + random.Next(0, 3) - 1;
                     }
-                    else if (caveboty + 1 - cavetopy == 0)
+                    else if (islandboty + 1 - islandtopy == 0)
                     {
                         if (random.Next(0, 2) == 1) //marken sjunker eller stannar lika
                         {
