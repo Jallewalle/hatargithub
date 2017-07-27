@@ -380,7 +380,7 @@ namespace försök_till_bra_spel
                     {
                         break;
                     }
-                    if ((caveboty - cavetopy) * 2 > cavelenght) // när den närmar sig sitt slut börjar den minska
+                    if ((caveboty - cavetopy) * 2 > cavelenght - xplats + x) // när den närmar sig sitt slut börjar den minska
                     {
                         caveboty = caveboty - random.Next(0, 2);
                         cavetopy = cavetopy + random.Next(0, 2);
