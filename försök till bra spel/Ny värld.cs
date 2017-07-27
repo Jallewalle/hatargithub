@@ -50,7 +50,7 @@ namespace försök_till_bra_spel
         }
         private void skapa()
         {
-            progressBar1.Value = skapavärld.getStorlek(storlek);
+            skapavärld.getStorlek(storlek);
             label2.Text = "Hämtar storlek";
 
             skapavärld.skapavärlden();
@@ -60,7 +60,7 @@ namespace försök_till_bra_spel
             skapavärld.getvärldnamn(name);
             label2.Text = "Namnger";
 
-            progressBar1.Value += skapavärld.underworld(0);
+            skapavärld.underworld();
             label2.Text = "Lägger ut jord och sten";
 
             skapavärld.caves();

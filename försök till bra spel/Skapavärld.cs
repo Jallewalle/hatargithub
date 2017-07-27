@@ -50,7 +50,7 @@ namespace försök_till_bra_spel
         string text = "";
         bool stop = false;
 
-        public int getStorlek(int x)
+        public void getStorlek(int x)
         {
             storleken = x;
             if (storleken == 1)
@@ -78,9 +78,8 @@ namespace försök_till_bra_spel
                 {
                     VärldsLista[i].Add(0);
                 }
-                return i * ybredd / 100;
-            }
-            return 100;         
+               
+            }       
             
         }
         public void skapavärlden()
@@ -115,20 +114,12 @@ namespace försök_till_bra_spel
                     biomelängd = random.Next(30, 60);
                     for (int x = 0; x < biomelängd; x++)
                     {
-
-                        if (random.Next(0, x) < 15)
+                        if (random.Next(0, x) > 15 || x == 0)
                         {
-                            if (yplats + ystart > 30)
+                            if (yplats + ystart < VärldsLista.Count - 1)
                                 yplats--;
                         }
-                        else
-                        {
-                            biome = 3;
-                            break;
-                        }
                         VärldsLista[ystart + yplats][xplats] = blocktyp;
-
-
                         if (yplats <= (ystart * -1) + 1)
                         {
                             biome = random.Next(4, 6);
@@ -146,7 +137,6 @@ namespace försök_till_bra_spel
                         }
                         xplats++;
                     }
-                    yplats--;
                 }
                 else if (biome == 3) //linj sjunkande
                 {
@@ -296,7 +286,7 @@ namespace försök_till_bra_spel
                 }
             }
         }
-        public int underworld(int x)
+        public void underworld()
         {
             for (int index = 0; index < VärldsLista[1].Count; index++)
             {
@@ -327,12 +317,8 @@ namespace försök_till_bra_spel
                     blocksner++;
                     
                 }
-                if (index % 100 == 0)
-                {
-                    return 1;
-                }
             }
-            return 0;
+
         }
         public void mineraler()
         {
