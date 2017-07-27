@@ -50,7 +50,7 @@ namespace försök_till_bra_spel
         string text = "";
         bool stop = false;
 
-        public void getStorlek(int x)
+        public int getStorlek(int x)
         {
             storleken = x;
             if (storleken == 1)
@@ -78,8 +78,10 @@ namespace försök_till_bra_spel
                 {
                     VärldsLista[i].Add(0);
                 }
-                return;
+                return i * ybredd / 100;
             }
+            return 100;         
+            
         }
         public void skapavärlden()
         {
@@ -294,7 +296,7 @@ namespace försök_till_bra_spel
                 }
             }
         }
-        public void underworld()
+        public int underworld(int x)
         {
             for (int index = 0; index < VärldsLista[1].Count; index++)
             {
@@ -323,8 +325,14 @@ namespace försök_till_bra_spel
                         VärldsLista[index1][index] = 2;
                     }
                     blocksner++;
+                    
+                }
+                if (index % 100 == 0)
+                {
+                    return 1;
                 }
             }
+            return 0;
         }
         public void mineraler()
         {

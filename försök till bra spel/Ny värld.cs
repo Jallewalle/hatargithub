@@ -60,7 +60,7 @@ namespace försök_till_bra_spel
             skapavärld.getvärldnamn(name);
             label2.Text = "Namnger";
 
-            skapavärld.underworld();
+            progressBar1.Value += skapavärld.underworld(0);
             label2.Text = "Lägger ut jord och sten";
 
             skapavärld.caves();
