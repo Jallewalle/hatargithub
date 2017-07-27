@@ -22,6 +22,10 @@ namespace försök_till_bra_spel
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
         List<string> Världen = new List<string>();
+        List<int> ExpanderandeVattenX = new List<int>();
+        List<int> ExpanderandeVattenY = new List<int>();
+        List<int> ExpanderandeVattenXtemp = new List<int>();
+        List<int> ExpanderandeVattenYtemp = new List<int>();
         int storleken;
         int vattenlängd;
         int vattenstart;
@@ -480,17 +484,58 @@ namespace försök_till_bra_spel
                     for (int index = 0; index <= vattenlängd; index++)
                     {
                         VärldsLista[yplats][vattenstart + index] = 6;
-                        addY = 1;
-                        while (VärldsLista[yplats + addY][vattenstart + index] == 0 || VärldsLista[yplats + addY][vattenstart + index] == 6)
+                        // Wallps försök 1
+                        //
+                        //addY = 1;
+                        //while (VärldsLista[yplats + addY][vattenstart + index] == 0 || VärldsLista[yplats + addY][vattenstart + index] == 6)
+                        //{
+                        //    VärldsLista[yplats + addY][vattenstart + index] = 7;
+                        //    if (addY + yplats < VärldsLista.Count - 1)
+                        //        addY++;
+                        //    else
+                        //        break;
+                        //}
+                    }
+                    ExpanderandeVattenX.Add(vattenstart);
+                    ExpanderandeVattenY.Add(yplats);
+                    try
+                    {
+                        while ((ExpanderandeVattenX[0] + ExpanderandeVattenY[0]) != 0)
                         {
-                            VärldsLista[yplats + addY][vattenstart + index] = 7;
-                            if (addY + yplats < VärldsLista.Count - 1)
-                                addY++;
-                            else
-                                break;
+                            for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
+                            {
+                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
+                                if (VärldsLista[(ExpanderandeVattenX[i2] - 1)][ExpanderandeVattenY[i2]] == 0)
+                                {
+                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
+                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+                                }
+                                if (VärldsLista[(ExpanderandeVattenX[i2] + 1)][ExpanderandeVattenY[i2]] == 0)
+                                {
+                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
+                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
+
+                                }
+                                if (VärldsLista[ExpanderandeVattenX[i2]][ExpanderandeVattenY[i2] + 1] == 0)
+                                {
+                                    ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);
+                                    ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
+                                }
+
+                            }
+                            ExpanderandeVattenX = ExpanderandeVattenXtemp;
+                            ExpanderandeVattenY = ExpanderandeVattenYtemp;
+                            ExpanderandeVattenX.Add(0);
+                            ExpanderandeVattenY.Add(0);
                         }
 
                     }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    
                 }
             }
         }
