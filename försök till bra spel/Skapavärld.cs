@@ -601,7 +601,12 @@ namespace försök_till_bra_spel
                     {
                         break;
                     }
-                    if (islandboty + 2 - islandtopy >= 0 && islandtopy >= 10) //om det är 2 mellanrum kan de röra sig fritt
+                    if ((islandboty - islandtopy) * 2 > islandlenght - x) // när den närmar sig sitt slut börjar den minska
+                    {
+                        islandboty = islandboty - random.Next(0, 2);
+                        islandtopy = islandtopy + random.Next(0, 2);
+                    }
+                    else if (islandboty + 2 - islandtopy >= 0 && islandtopy >= 10) //om det är 2 mellanrum kan de röra sig fritt
                     {
                         islandboty = islandboty + random.Next(0, 3) - 1;
                         islandtopy = islandtopy + random.Next(0, 3) - 1;
