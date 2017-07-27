@@ -377,7 +377,12 @@ namespace försök_till_bra_spel
                     {
                         break;
                     }
-                    if (caveboty + 2 - cavetopy >= 0) //om det är 2 mellanrum kan de röra sig fritt
+                    if ((caveboty - cavetopy) * 2 > cavelenght) // när den närmar sig sitt slut börjar den minska
+                    {
+                        caveboty = caveboty - random.Next(0, 2);
+                        cavetopy = cavetopy + random.Next(0, 2);
+                    }
+                    else if (caveboty + 2 - cavetopy >= 0) //om det är 2 mellanrum kan de röra sig fritt
                     {
                         caveboty = caveboty + random.Next(0, 3) - 1;
                         cavetopy = cavetopy + random.Next(0, 3) - 1;
@@ -395,6 +400,7 @@ namespace försök_till_bra_spel
                             cavetopy = cavetopy + random.Next(0, 2) - 1;
                         }
                     }
+
                 }
 
             }
