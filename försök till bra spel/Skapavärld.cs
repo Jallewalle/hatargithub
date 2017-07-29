@@ -331,10 +331,11 @@ namespace försök_till_bra_spel
                 yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
 
                 blocktyp = 8;
-
-                for (int ylängd = 0; ylängd < random.Next(3, 20); ylängd++)
+                int xlength = random.Next(9, 15);
+                int ylength = random.Next(9, 15);
+                for (int ylängd = 0; ylängd < xlength; ylängd++)
                 {
-                    for (int xlängd = 0; xlängd < random.Next(3, 15 + ylängd); xlängd++)
+                    for (int xlängd = 0; xlängd < ylength; xlängd++)
                     {
                         try
                         {
@@ -353,7 +354,42 @@ namespace försök_till_bra_spel
                         }
                     }
                 }
+
             }
+        }
+
+        public void mineralerV2()
+        {
+            for (int i = 0; i < VärldsLista.Count; i++)
+            {
+                xplats = random.Next(0, VärldsLista[1].Count);
+                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
+
+                blocktyp = 8;
+                int xlength = random.Next(9, 15);
+                int ylength = random.Next(9, 15);
+                    for (int ylängd = 0; ylängd < xlength; ylängd++)
+                    {
+                    for (int xlängd = 0; xlängd < ylength; xlängd++)
+                    {
+                        try
+                        {
+                            if (VärldsLista[yplats + ylängd][xplats + xlängd] != 0 &&
+                                VärldsLista[yplats + ylängd][xplats + xlängd] != 6 &&
+                                VärldsLista[yplats + ylängd][xplats + xlängd] != 7 &&
+                                random.Next(2) == 0)
+                            {
+                                VärldsLista[yplats + ylängd][xplats + xlängd] = blocktyp;
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            // utanför mappen mineralerV2
+                        }
+                    }
+                    }
+                }
         }
         public void caves()
         {

@@ -69,7 +69,7 @@ namespace försök_till_bra_spel
             skapavärld.floatingislands();
             label2.Text = "Skapar öar";
 
-            skapavärld.mineraler();
+            skapavärld.mineralerV2();
             label2.Text = "Skapar mineraler";
 
             skapavärld.skapavatten();
