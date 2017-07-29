@@ -56,7 +56,7 @@ namespace försök_till_bra_spel
             label2.Text = "Hämtar storlek";
             label2.Update();
             skapavärld.getStorlek(storlek);
-
+            //
 
             label2.Text = "Skapar terräng";
             updatelabel();
