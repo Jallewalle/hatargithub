@@ -16,6 +16,7 @@ namespace försök_till_bra_spel
         Random random = new Random(); //random random
         Ladda_värld laddavärld = new Ladda_värld();
         
+        
         List<List<int>> VärldsLista = new List<List<int>>();
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
@@ -630,6 +631,7 @@ namespace försök_till_bra_spel
         }
         public void sparavärlden()
         {
+            Ny_värld nyvärld = new Ny_värld();
             int temp = 1;
             Världen.Add(storleken.ToString());
             if (WorldName != "")
@@ -661,11 +663,16 @@ namespace försök_till_bra_spel
                     text += "x";
                     Världen.Add(text);
                     text = "";
+                    if (Ycoordinate % 30 == 0)
+                    {
+                        nyvärld.progressBar1.Value += 1;
+                        nyvärld.progressBar1.Update();
+                    }
+                    
                 }
                            
                 System.IO.File.WriteAllLines(@"F:\AAAWorlds\Worlds\" + WorldName + ".txt", Världen);
                 laddavärld.öppnavärld("F:\\AAAWorlds\\Worlds\\" + WorldName + ".txt");
-                Form.ActiveForm.Close();
 
             }
             else
