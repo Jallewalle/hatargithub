@@ -367,8 +367,8 @@ namespace försök_till_bra_spel
                 yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
 
                 blocktyp = 8;
-                int xlength = random.Next(9, 15);
-                int ylength = random.Next(9, 15);
+                int xlength = random.Next(5, 15);
+                int ylength = random.Next(5, 15);
                     for (int ylängd = 0; ylängd < xlength; ylängd++)
                     {
                     for (int xlängd = 0; xlängd < ylength; xlängd++)

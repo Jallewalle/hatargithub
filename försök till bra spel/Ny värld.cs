@@ -26,7 +26,7 @@ namespace försök_till_bra_spel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            progressBar2.Value = 50;
+            
             
             storlek = 1;
             skapa();
@@ -85,7 +85,7 @@ namespace försök_till_bra_spel
             progressBar1.Value = 0;
             label2.Text = "Skapar mineraler";
             updatelabel();
-            skapavärld.mineraler();
+            skapavärld.mineralerV2();
 
             progressBar1.Value = 0;
             label2.Text = "Skapar vatten";
