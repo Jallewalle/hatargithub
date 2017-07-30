@@ -26,7 +26,6 @@ namespace försök_till_bra_spel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            progressBar2.Value = 50;
             
             storlek = 1;
             skapa();
@@ -47,56 +46,80 @@ namespace försök_till_bra_spel
         }
         public void progressbar()
         {
-            progressBar1.Value = 50;
+            progressBar1.Value += 65;
+            progressBar1.PerformStep();
+        }
+        public void progressBarTotalUpdate(int value)
+        {
+            try
+            {
+                progressBarTotal.Value += value;
+            }
+            catch (Exception)
+            {
+
+                progressBarTotal.Value = 100;
+            }
+
         }
         private void skapa()
         {
-            
+
+            progressbar();
             label2.Text = "Hämtar storlek";
             label2.Update();
             skapavärld.getStorlek(storlek);
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Skapar terräng";
             updatelabel();
             skapavärld.skapavärlden();
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Namnger";
             updatelabel();
             name = textBox1.Text;
             skapavärld.getvärldnamn(name);
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Lägger ut jord och sten";
             updatelabel();
             skapavärld.underworld();
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Skapar grottor";
             updatelabel();
             skapavärld.caves();
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Skapar öar";
             updatelabel();
             skapavärld.floatingislands();
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Skapar mineraler";
             updatelabel();
             skapavärld.mineraler();
+            progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
             label2.Text = "Skapar vatten";
             updatelabel();
             skapavärld.skapavatten();
-            
+            progressBarTotalUpdate(11);
+
             progressBar1.Value = 0;
             label2.Text = "Sparar";
             updatelabel();
             skapavärld.sparavärlden();
-            
+            progressBarTotalUpdate(12);
+
             label2.Text = "";
             updatelabel();
             MessageBox.Show("Sparat");
@@ -116,7 +139,9 @@ namespace försök_till_bra_spel
             return name;
         }
 
-        
-        
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBarTotal = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // button1
@@ -86,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 95);
+            this.label2.Location = new System.Drawing.Point(292, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 5;
@@ -94,16 +95,28 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(194, 59);
+            this.progressBar1.Location = new System.Drawing.Point(194, 90);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(241, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 21;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+            // 
+            // progressBarTotal
+            // 
+            this.progressBarTotal.Location = new System.Drawing.Point(194, 59);
+            this.progressBarTotal.Name = "progressBarTotal";
+            this.progressBarTotal.Size = new System.Drawing.Size(241, 23);
+            this.progressBarTotal.Step = 0;
+            this.progressBarTotal.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarTotal.TabIndex = 22;
             // 
             // Ny_värld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 177);
+            this.Controls.Add(this.progressBarTotal);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -127,5 +140,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBarTotal;
     }
 }

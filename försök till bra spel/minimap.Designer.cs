@@ -36,6 +36,7 @@
             this.progressBar1.Location = new System.Drawing.Point(13, 13);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(393, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 0;
             // 
             // minimap
