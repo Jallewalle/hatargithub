@@ -460,12 +460,13 @@ namespace försök_till_bra_spel
                 vattenslut = 0;
                 möjligaVattenX.Clear();
                 möjligaVattenY.Clear();
+                möjligaVattenLängd.Clear();
                 xplats = random.Next(1, VärldsLista[1].Count -1);
                 for (int Y = 0; Y < VärldsLista.Count-1; Y++)
                 {
                      if (VärldsLista[Y+1][xplats] != 0 && VärldsLista[Y][xplats-1] !=0 && VärldsLista[Y][xplats]==0)
                      {
-                           for (int x = 0; i < 100; i++)
+                           for (int x = 0; x < 100; x++)
                            {
                                 if (VärldsLista[Y][xplats + x] != 0)
                                 {
@@ -477,8 +478,7 @@ namespace försök_till_bra_spel
                            }
                       }
                 }
-                slump = random.Next(möjligaVattenY.Count);
-                yplats = möjligaVattenY[slump];
+
                     //Wallps försök1
 
                     //while (true)
@@ -548,8 +548,10 @@ namespace försök_till_bra_spel
                     //    if (stop)
                     //        break;
                     //}
-                    if (vattenstart+ vattenlängd > 0)
+                    if (möjligaVattenY.Count !=0)
                 {
+                    slump = random.Next(möjligaVattenY.Count);
+                    yplats = möjligaVattenY[slump];
                     vattenstart = xplats;
                     vattenlängd = möjligaVattenLängd[slump];
                     for (int index = 0; index <= vattenlängd; index++)
@@ -568,12 +570,14 @@ namespace försök_till_bra_spel
                                 {
                                     for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
                                     {
-                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0)
+                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0 ||
+                                            VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 6)
                                         {
                                             VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
                                         try
                                         {
-                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0)
+                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0||
+                                                VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);           // lägger till ytor som ska täckas med vatten i en temporär lista som ska fyllas i nästa tick(när den lopar om while lopen)
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
@@ -586,7 +590,8 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0 ||
+                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -600,7 +605,8 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0 ||
+                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
