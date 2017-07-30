@@ -29,6 +29,9 @@ namespace försök_till_bra_spel
         List<int> ExpanderandeVattenY = new List<int>();
         List<int> ExpanderandeVattenXtemp = new List<int>();
         List<int> ExpanderandeVattenYtemp = new List<int>();
+        List<int> möjligaVattenX = new List<int>();
+        List<int> möjligaVattenY = new List<int>();
+        List<int> möjligaVattenLängd = new List<int>();
         #region variabler
         int storleken;
         int vattenlängd;
@@ -51,6 +54,7 @@ namespace försök_till_bra_spel
         string WorldName;
         string text = "";
         bool stop = false;
+        int slump;
 
         #endregion
 
@@ -447,86 +451,124 @@ namespace försök_till_bra_spel
         }
         public void skapavatten()
         {
+            
             for (int i = 0; i < VärldsLista.Count / 10; i++)
             {
                 stop = false;
                 addX = 0;
                 vattenslut = 0;
-                while (true)
+                möjligaVattenX.Clear();
+                möjligaVattenY.Clear();
+                möjligaVattenLängd.Clear();
+                xplats = random.Next(1, VärldsLista[1].Count -1);
+                for (int Y = 0; Y < VärldsLista.Count-1; Y++)
                 {
-                    xplats = random.Next(1, VärldsLista[1].Count);
-                    for (int Y = 0; Y < VärldsLista.Count; Y++)
-                    {
-                        if (VärldsLista[Y][xplats] != 0)
-                        {
-                            yplats = Y - 1;
-                            break;
-                        }
-                    }
-                    while (true)
-                    {
-                        stop = false;
+                     if (VärldsLista[Y+1][xplats] != 0 && VärldsLista[Y][xplats-1] !=0 && VärldsLista[Y][xplats]==0)
+                     {
                         try
                         {
-                            if (VärldsLista[yplats][xplats - 1] != 0)
+                            for (int x = 0; x < 100; x++)
                             {
-
-                                stop = false;
-                                for (int index = 0; index <= 100; index++)
+                                if (VärldsLista[Y][xplats + x] != 0)
                                 {
-                                    addX = index;
-                                    if (VärldsLista[yplats][xplats + addX] != 0)
-                                    {
-                                        vattenslut = xplats + addX - 1;
-                                        stop = true;
-                                        break;
-                                    }
-                                    if (addX >= 100 || xplats + addX >= VärldsLista[1].Count - 1)
-                                    {
-                                        stop = true;
-                                    }
-                                    if (stop)
-                                        break;
-                                }
-                                if (stop)
-                                {
+                                    möjligaVattenX.Add(xplats);                 //lägger till alla tillåtna platser
+                                    möjligaVattenY.Add(Y);
+                                    möjligaVattenLängd.Add(x);
                                     break;
                                 }
-                            }
-                            else
-                            {
-                                if (xplats > 1)
-                                {
-                                    xplats--;
-                                }
-                                else
-                                {
-                                    xplats = 0;
-                                    stop = true;
-                                }
-
                             }
                         }
                         catch (Exception)
                         {
-                            stop = true;
+
+                            
                         }
-                        if (stop)
-                        {
-                            break;
-                        }
-                    }
-                    if (stop)
-                        break;
+
+                      }
                 }
-                if (vattenslut > 0)
+
+                    //Wallps försök1
+
+                    //while (true)
+                    //{
+                    //    xplats = random.Next(1, VärldsLista[1].Count);
+                    //    for (int Y = 0; Y < VärldsLista.Count; Y++)
+                    //    {
+                    //        if (VärldsLista[Y][xplats] != 0)
+                    //        {
+                    //            yplats = Y - 1;
+                    //            break;
+                    //        }
+                    //    }
+                    //    while (true)
+                    //    {
+                    //        stop = false;
+                    //        try
+                    //        {
+                    //            if (VärldsLista[yplats][xplats - 1] != 0)
+                    //            {
+
+                    //                stop = false;
+                    //                for (int index = 0; index <= 100; index++)
+                    //                {
+                    //                    addX = index;
+                    //                    if (VärldsLista[yplats][xplats + addX] != 0)
+                    //                    {
+                    //                        vattenslut = xplats + addX - 1;
+                    //                        stop = true;
+                    //                        break;
+                    //                    }
+                    //                    if (addX >= 100 || xplats + addX >= VärldsLista[1].Count - 1)
+                    //                    {
+                    //                        stop = true;
+                    //                    }
+                    //                    if (stop)
+                    //                        break;
+                    //                }
+                    //                if (stop)
+                    //                {
+                    //                    break;
+                    //                }
+                    //            }
+                    //            else
+                    //            {
+                    //                if (xplats > 1)
+                    //                {
+                    //                    xplats--;
+                    //                }
+                    //                else
+                    //                {
+                    //                    xplats = 0;
+                    //                    stop = true;
+                    //                }
+
+                    //            }
+                    //        }
+                    //        catch (Exception)
+                    //        {
+                    //            stop = true;
+                    //        }
+                    //        if (stop)
+                    //        {
+                    //            break;
+                    //        }
+                    //    }
+                    //    if (stop)
+                    //        break;
+                    //}
+                    if (möjligaVattenY.Count !=0)
                 {
+                    slump = random.Next(möjligaVattenY.Count);
+                    yplats = möjligaVattenY[slump];
                     vattenstart = xplats;
-                    vattenlängd = vattenslut - vattenstart;
+                    vattenlängd = möjligaVattenLängd[slump];
                     for (int index = 0; index <= vattenlängd; index++)
                     {
-                        VärldsLista[yplats][vattenstart + index] = 6; // expanderar vattnet ner, vänster och höger från  y-1 från startpunkten 
-                        ExpanderandeVattenX.Clear();
+                        if (VärldsLista[yplats][vattenstart+ index] == 0)
+                        {
+                            VärldsLista[yplats][vattenstart + index] = 6;
+                        }
+                        ExpanderandeVattenX.Clear();                    // expanderar vattnet ner, vänster och höger från  y-1 från startpunkten 
                         ExpanderandeVattenY.Clear();
                         ExpanderandeVattenX.Add(vattenstart + index);
                         ExpanderandeVattenY.Add(yplats + 1);
@@ -536,12 +578,14 @@ namespace försök_till_bra_spel
                                 {
                                     for (int i2 = 0; i2 < ExpanderandeVattenX.Count(); i2++)
                                     {
-                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0)
+                                        if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 0 ||
+                                            VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] == 6)
                                         {
                                             VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
                                         try
                                         {
-                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0)
+                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0||
+                                                VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);           // lägger till ytor som ska täckas med vatten i en temporär lista som ska fyllas i nästa tick(när den lopar om while lopen)
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2] + 1);
@@ -554,7 +598,8 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0 ||
+                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -568,7 +613,8 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0 ||
+                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -587,7 +633,7 @@ namespace försök_till_bra_spel
                                     ExpanderandeVattenXtemp.Clear();        //tömmer temporära listan efter varje  tick
                                     ExpanderandeVattenYtemp.Clear();
                                     ExpanderandeVattenX.Add(0);             //lägger till 0,0 på slutet för att se om expanderavatten är tom
-                                    ExpanderandeVattenY.Add(0);
+                                    ExpanderandeVattenY.Add(0);  // test
                                 }
                     
                         }
