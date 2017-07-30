@@ -466,16 +466,25 @@ namespace försök_till_bra_spel
                 {
                      if (VärldsLista[Y+1][xplats] != 0 && VärldsLista[Y][xplats-1] !=0 && VärldsLista[Y][xplats]==0)
                      {
-                           for (int x = 0; x < 100; x++)
-                           {
+                        try
+                        {
+                            for (int x = 0; x < 100; x++)
+                            {
                                 if (VärldsLista[Y][xplats + x] != 0)
                                 {
-                                möjligaVattenX.Add(xplats);                 //lägger till alla tillåtna platser
-                                möjligaVattenY.Add(Y);
-                                möjligaVattenLängd.Add(x);
-                                break;
+                                    möjligaVattenX.Add(xplats);                 //lägger till alla tillåtna platser
+                                    möjligaVattenY.Add(Y);
+                                    möjligaVattenLängd.Add(x);
+                                    break;
                                 }
-                           }
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            
+                        }
+
                       }
                 }
 
