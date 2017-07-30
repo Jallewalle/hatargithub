@@ -22,6 +22,7 @@ namespace försök_till_bra_spel
         }
 
         int storlek;
+        int procent = 0;
         string name;
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,54 +46,54 @@ namespace försök_till_bra_spel
             skapa();
 
         }
-        public void progressbar()
+        public void progressbar(int x)
         {
-            progressBar1.Value = 50;
+            procent += 1;
         }
         private void skapa()
         {
-            
+           
             label2.Text = "Hämtar storlek";
             label2.Update();
             skapavärld.getStorlek(storlek);
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Skapar terräng";
             updatelabel();
             skapavärld.skapavärlden();
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Namnger";
             updatelabel();
             name = textBox1.Text;
             skapavärld.getvärldnamn(name);
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Lägger ut jord och sten";
             updatelabel();
             skapavärld.underworld();
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Skapar grottor";
             updatelabel();
             skapavärld.caves();
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Skapar öar";
             updatelabel();
             skapavärld.floatingislands();
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Skapar mineraler";
             updatelabel();
             skapavärld.mineralerV2();
 
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Skapar vatten";
             updatelabel();
             skapavärld.skapavatten();
             
-            progressBar1.Value = 0;
+            //progressBar1.Value = 0;
             label2.Text = "Sparar";
             updatelabel();
             skapavärld.sparavärlden();
