@@ -27,6 +27,7 @@ namespace försök_till_bra_spel
         private void button1_Click(object sender, EventArgs e)
         {
             
+            
             storlek = 1;
             skapa();
             
@@ -64,7 +65,7 @@ namespace försök_till_bra_spel
         }
         private void skapa()
         {
-
+            
             progressbar();
             label2.Text = "Hämtar storlek";
             label2.Update();
@@ -105,7 +106,7 @@ namespace försök_till_bra_spel
             progressBar1.Value = 0;
             label2.Text = "Skapar mineraler";
             updatelabel();
-            skapavärld.mineraler();
+            skapavärld.mineralerV2();
             progressBarTotalUpdate(11);
 
             progressBar1.Value = 0;
@@ -113,13 +114,13 @@ namespace försök_till_bra_spel
             updatelabel();
             skapavärld.skapavatten();
             progressBarTotalUpdate(11);
-
+            
             progressBar1.Value = 0;
             label2.Text = "Sparar";
             updatelabel();
             skapavärld.sparavärlden();
             progressBarTotalUpdate(12);
-
+            
             label2.Text = "";
             updatelabel();
             MessageBox.Show("Sparat");
@@ -141,7 +142,7 @@ namespace försök_till_bra_spel
 
         private void progressBar1_Click(object sender, EventArgs e)
         {
-
-        }
+        
     }
+}
 }
