@@ -431,46 +431,6 @@ namespace försök_till_bra_spel
 
             }
         }
-        public void mineralerV2()
-        {
-            label1.Text = "Placerar mineraler";
-            label1.Update();
-            progressBar1.Value = 0;
-            for (int i = 0; i < VärldsLista.Count; i++)
-            {
-                xplats = random.Next(0, VärldsLista[1].Count);
-                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
-
-                blocktyp = 8;
-                int xlength = random.Next(5, 15);
-                int ylength = random.Next(5, 15);
-                for (int ylängd = 0; ylängd < xlength; ylängd++)
-                {
-                    for (int xlängd = 0; xlängd < ylength; xlängd++)
-                    {
-                        try
-                        {
-                            if (VärldsLista[yplats + ylängd][xplats + xlängd] != 0 &&
-                                VärldsLista[yplats + ylängd][xplats + xlängd] != 6 &&
-                                VärldsLista[yplats + ylängd][xplats + xlängd] != 7 &&
-                                random.Next(2) == 0)
-                            {
-                                VärldsLista[yplats + ylängd][xplats + xlängd] = blocktyp;
-                            }
-                        }
-                        catch (Exception)
-                        {
-
-                            // utanför mappen mineralerV2
-                        }
-                    }
-                }
-                if (i % (VärldsLista.Count/100) == 0)
-                {
-                    progressBar1.PerformStep();
-                }
-            }
-        }
         public void caves()
         {
             int cavelenght = 0;
@@ -531,6 +491,46 @@ namespace försök_till_bra_spel
 
             }
 
+        }
+        public void mineralerV2()
+        {
+            label1.Text = "Placerar mineraler";
+            label1.Update();
+            progressBar1.Value = 0;
+            for (int i = 0; i < VärldsLista.Count; i++)
+            {
+                xplats = random.Next(0, VärldsLista[1].Count);
+                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
+
+                blocktyp = 8;
+                int xlength = random.Next(5, 15);
+                int ylength = random.Next(5, 15);
+                for (int ylängd = 0; ylängd < xlength; ylängd++)
+                {
+                    for (int xlängd = 0; xlängd < ylength; xlängd++)
+                    {
+                        try
+                        {
+                            if (VärldsLista[yplats + ylängd][xplats + xlängd] != 0 &&
+                                VärldsLista[yplats + ylängd][xplats + xlängd] != 6 &&
+                                VärldsLista[yplats + ylängd][xplats + xlängd] != 7 &&
+                                random.Next(2) == 0)
+                            {
+                                VärldsLista[yplats + ylängd][xplats + xlängd] = blocktyp;
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            // utanför mappen mineralerV2
+                        }
+                    }
+                }
+                if (i % (VärldsLista.Count/100) == 0)
+                {
+                    progressBar1.PerformStep();
+                }
+            }
         }
         public void skapavatten()
         {
