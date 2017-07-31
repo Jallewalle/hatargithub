@@ -678,7 +678,7 @@ namespace försök_till_bra_spel
                                     {
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2 - 1]][ExpanderandeVattenX[i2]] == 0
+                                            if (VärldsLista[(ExpanderandeVattenY[i2]-1)][ExpanderandeVattenX[i2]] == 0
                                                 )
                                             {
                                                 VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 6;
