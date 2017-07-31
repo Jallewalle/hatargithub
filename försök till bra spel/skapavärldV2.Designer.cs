@@ -30,30 +30,55 @@
         {
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(13, 13);
+            this.progressBar1.Location = new System.Drawing.Point(13, 59);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(259, 23);
             this.progressBar1.Step = 1;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 0;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 43);
+            this.label1.Location = new System.Drawing.Point(12, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(13, 13);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(258, 23);
+            this.progressBar2.Step = 1;
+            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar2.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Total x/x";
             // 
             // skapavärldV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 90);
+            this.ClientSize = new System.Drawing.Size(284, 109);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Name = "skapavärldV2";
@@ -67,5 +92,7 @@
 
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ProgressBar progressBar2;
+        public System.Windows.Forms.Label label2;
     }
 }

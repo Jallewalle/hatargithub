@@ -176,11 +176,23 @@ namespace försök_till_bra_spel
         {
             if (e.KeyChar == 'z')
             {
-                blockstorlek = 1;
-                width = 1200;
-                height = 600;
-                movespeedx = 200;
-                movespeedy = 200;
+                if (blockstorlek == 1)
+                {
+                    blockstorlek = 10;
+                    width = 120;
+                    height = 60;
+                    movespeedx = 20;
+                    movespeedy = 20;
+                }
+                else
+                {
+                    blockstorlek = 1;
+                    width = 1200;
+                    height = 600;
+                    movespeedx = 200;
+                    movespeedy = 200;
+                }
+
             }
         }
     }

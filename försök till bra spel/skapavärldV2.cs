@@ -680,7 +680,7 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0 ||
+                                            if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0 || //kollar neranför
                                                 VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 6)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2]);           // lägger till ytor som ska täckas med vatten i en temporär lista som ska fyllas i nästa tick(när den lopar om while lopen)
@@ -694,7 +694,7 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1]==0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1]==0) //kollar vänster
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -708,7 +708,7 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0) //kollar höger
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -882,5 +882,14 @@ namespace försök_till_bra_spel
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
