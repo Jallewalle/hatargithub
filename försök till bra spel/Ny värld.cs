@@ -13,8 +13,8 @@ namespace försök_till_bra_spel
     public partial class Ny_värld : Form
     {
 
-        //Form form = new Form();
         Skapavärld skapavärld = new Skapavärld();
+        skapavärldV2 skapavärld2 = new skapavärldV2();
 
         public Ny_värld()
         {
@@ -47,7 +47,7 @@ namespace försök_till_bra_spel
         }
         public void progressbar()
         {
-            progressBar1.Value += 65;
+            progressBar1.Value += 1;
             progressBar1.PerformStep();
         }
         public void progressBarTotalUpdate(int value)
@@ -65,64 +65,27 @@ namespace försök_till_bra_spel
         }
         private void skapa()
         {
-            
-            progressbar();
-            label2.Text = "Hämtar storlek";
-            label2.Update();
-            skapavärld.getStorlek(storlek);
-            progressBarTotalUpdate(11);
+            skapavärld2.Show();
 
-            progressBar1.Value = 0;
-            label2.Text = "Skapar terräng";
-            updatelabel();
-            skapavärld.skapavärlden();
-            progressBarTotalUpdate(11);
+            skapavärld2.getStorlek(storlek);
 
-            progressBar1.Value = 0;
-            label2.Text = "Namnger";
-            updatelabel();
+            skapavärld2.skapavärlden();
+
             name = textBox1.Text;
-            skapavärld.getvärldnamn(name);
-            progressBarTotalUpdate(11);
+            skapavärld2.getvärldnamn(name);
 
-            progressBar1.Value = 0;
-            label2.Text = "Lägger ut jord och sten";
-            updatelabel();
-            skapavärld.underworld();
-            progressBarTotalUpdate(11);
+            skapavärld2.underworld();
 
-            progressBar1.Value = 0;
-            label2.Text = "Skapar grottor";
-            updatelabel();
-            skapavärld.caves();
-            progressBarTotalUpdate(11);
+            skapavärld2.caves();
 
-            progressBar1.Value = 0;
-            label2.Text = "Skapar öar";
-            updatelabel();
-            skapavärld.floatingislands();
-            progressBarTotalUpdate(11);
+            skapavärld2.floatingislands();
 
-            progressBar1.Value = 0;
-            label2.Text = "Skapar mineraler";
-            updatelabel();
-            skapavärld.mineralerV2();
-            progressBarTotalUpdate(11);
+            skapavärld2.mineralerV2();
 
-            progressBar1.Value = 0;
-            label2.Text = "Skapar vatten";
-            updatelabel();
-            skapavärld.skapavatten();
-            progressBarTotalUpdate(11);
+            skapavärld2.skapavatten();
             
-            progressBar1.Value = 0;
-            label2.Text = "Sparar";
-            updatelabel();
-            skapavärld.sparavärlden();
-            progressBarTotalUpdate(12);
+            skapavärld2.sparavärlden();
             
-            label2.Text = "";
-            updatelabel();
             MessageBox.Show("Sparat");
         }
         public void updatelabel()
