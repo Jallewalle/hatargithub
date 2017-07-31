@@ -641,16 +641,10 @@ namespace försök_till_bra_spel
                     yplats = möjligaVattenY[slump];
                     vattenstart = xplats;
                     vattenlängd = möjligaVattenLängd[slump];
-                    for (int index = 0; index <= vattenlängd; index++)
-                    {
-                        if (VärldsLista[yplats][vattenstart + index] == 0)
-                        {
-                            VärldsLista[yplats][vattenstart + index] = 6;
-                        }
                         ExpanderandeVattenX.Clear();                    // expanderar vattnet ner, vänster och höger från  y-1 från startpunkten 
                         ExpanderandeVattenY.Clear();
-                        ExpanderandeVattenX.Add(vattenstart + index);
-                        ExpanderandeVattenY.Add(yplats + 1);
+                        ExpanderandeVattenX.Add(vattenstart);
+                        ExpanderandeVattenY.Add(yplats);
                         try
                         {
                             while ((ExpanderandeVattenX[0] + ExpanderandeVattenY[0]) != 0)
@@ -677,7 +671,6 @@ namespace försök_till_bra_spel
                                             //test
                                             //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
                                         }
-                                        VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2]] = 7;
                                         try
                                         {
                                             if (VärldsLista[(ExpanderandeVattenY[i2] + 1)][ExpanderandeVattenX[i2]] == 0 ||
@@ -745,8 +738,7 @@ namespace försök_till_bra_spel
                         //        addY++;
                         //    else
                         //        break;
-                        //}
-                    }
+                        //}p
 
 
                 }
