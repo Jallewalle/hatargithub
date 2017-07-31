@@ -366,8 +366,8 @@ namespace försök_till_bra_spel
         {
             for (int i = 0; i < VärldsLista.Count; i++)
             {
-                xplats = random.Next(0, VärldsLista[1].Count);
-                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
+                xplats = random.Next(0, VärldsLista[1].Count -15);
+                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count -15);
 
                 blocktyp = 8;
                 int xlength = random.Next(5, 15);
@@ -388,6 +388,7 @@ namespace försök_till_bra_spel
                         }
                         catch (Exception)
                         {
+                            felsök();
 
                             // utanför mappen mineralerV2
                         }
