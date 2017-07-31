@@ -66,6 +66,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skapavärld.cs" />
+    <Compile Include="skapavärldV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="skapavärldV2.Designer.cs">
+      <DependentUpon>skapavärldV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spelvärld.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="skapavärldV2.resx">
+      <DependentUpon>skapavärldV2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spelvärld.resx">
       <DependentUpon>Spelvärld.cs</DependentUpon>
     </EmbeddedResource>
