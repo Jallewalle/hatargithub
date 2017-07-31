@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -87,11 +88,11 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(13, 313);
+            this.button5.Location = new System.Drawing.Point(93, 310);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(166, 23);
+            this.button5.Size = new System.Drawing.Size(78, 23);
             this.button5.TabIndex = 6;
-            this.button5.Text = "Create png of map";
+            this.button5.Text = "Stor";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -100,15 +101,26 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 294);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Funkar bara för stora världar";
+            this.label1.Text = "PNG av världen";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 310);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Ultra";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 348);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -133,6 +145,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button6;
     }
 }
 

@@ -30,8 +30,8 @@ namespace försök_till_bra_spel
         int height = 60;
         int gravity = 14;
         int jumpheight = 0;
-        int movespeedx = 20;
-        int movespeedy = 20;
+        int movespeedx = 25;
+        int movespeedy = 25;
 
         Font drawFont = new Font("Arial", 20);
         #region bildr

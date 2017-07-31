@@ -20,15 +20,17 @@ namespace försök_till_bra_spel
 
         List<List<int>> värld = new List<List<int>>();
         string name;
-        public void createmap(List<List<int>> x)
+        public void createmap(List<List<int>> x, int längd, int höjd)
         {
             värld = x;
+            int xlängd = längd;
+            int yhöjd = höjd;
             name = rand.Next(10000, 100000).ToString();
-            Bitmap bmp = new Bitmap(10000, 3000);
+            Bitmap bmp = new Bitmap(xlängd, yhöjd);
             
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < xlängd; i++)
             {
-                for (int index = 0; index < 3000; index++)
+                for (int index = 0; index < yhöjd; index++)
                 {
                     if (värld[index][i] == 1)
                     {
@@ -54,7 +56,11 @@ namespace försök_till_bra_spel
                     {
                         bmp.SetPixel(i, index, Color.Brown);
                     }
-                    else if (värld[index][i] == 7 || värld[index][i] == 8)
+                    else if (värld[index][i] == 7)
+                    {
+                        bmp.SetPixel(i, index, Color.LightBlue);
+                    }
+                    else if (värld[index][i] == 8)
                     {
                         bmp.SetPixel(i, index, Color.DarkBlue);
                     }

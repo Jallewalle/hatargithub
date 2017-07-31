@@ -43,8 +43,8 @@ namespace försök_till_bra_spel
             }
             else if (text[0] == '4')
             {
-                storlekenx = 24;
-                storlekeny = 15;
+                storlekenx = 25000;
+                storlekeny = 7500;
             }
 
             for (int i = 0; i < storlekeny; i++)

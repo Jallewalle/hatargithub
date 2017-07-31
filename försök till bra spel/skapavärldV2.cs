@@ -86,6 +86,12 @@ namespace försök_till_bra_spel
                 ybredd = 200;
                 ystart = 50;
             }
+            else if (storleken == 4)
+            {
+                xlängd = 25000;
+                ybredd = 7500;
+                ystart = 2500;
+            }
             for (int i = 0; i < ybredd; i++)
             {
                 VärldsLista.Add(new List<int>());
@@ -219,6 +225,11 @@ namespace försök_till_bra_spel
                         {
                             felsök();
                         }
+                        if (xplats >= xlängd - 1)
+                        {
+                            stop = true;
+                        }
+
                         xplats++;
                     }
                 }
@@ -273,6 +284,10 @@ namespace försök_till_bra_spel
                         if (blocktyp != 1)
                         {
                             felsök();
+                        }
+                        if (xplats >= xlängd - 1)
+                        {
+                            stop = true;
                         }
 
                         xplats++;
@@ -448,7 +463,7 @@ namespace försök_till_bra_spel
 
                 for (int x = 0; x < cavelenght; x++)
                 {
-                    if (caveboty - cavetopy >= 1)
+                    if (caveboty - cavetopy >= 1 && caveboty < 7500)
                     {
                         for (int air = cavetopy; air <= caveboty; air++)
                         {
