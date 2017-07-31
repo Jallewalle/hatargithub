@@ -630,7 +630,7 @@ namespace försök_till_bra_spel
                                         {
                                             if (VärldsLista[ExpanderandeVattenY[i2 -1]][ExpanderandeVattenX[i2]] == 0)
                                             {
-                                                VärldsLista[ExpanderandeVattenY[i2 -1]][ExpanderandeVattenX[i2]] == 6;
+                                                VärldsLista[ExpanderandeVattenY[i2 -1]][ExpanderandeVattenX[i2]] = 6;
                                             }
                                         }
                                         catch (Exception)
