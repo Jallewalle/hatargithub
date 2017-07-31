@@ -635,7 +635,7 @@ namespace försök_till_bra_spel
                                         }
                                         catch (Exception)
                                         {
-
+                                            //test
                                             //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
                                         }
 
