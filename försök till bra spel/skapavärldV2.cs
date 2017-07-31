@@ -26,7 +26,7 @@ namespace försök_till_bra_spel
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
 
         //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
-
+        #region listorna
         List<string> Världen = new List<string>();
         List<int> ExpanderandeVattenX = new List<int>();
         List<int> ExpanderandeVattenY = new List<int>();
@@ -35,6 +35,7 @@ namespace försök_till_bra_spel
         List<int> möjligaVattenX = new List<int>();
         List<int> möjligaVattenY = new List<int>();
         List<int> möjligaVattenLängd = new List<int>();
+        #endregion
         #region variabler
         int storleken;
         int vattenlängd;
@@ -58,9 +59,9 @@ namespace försök_till_bra_spel
         string text = "";
         bool stop = false;
         int slump;
+        int underblock;
 
         #endregion
-
         public void getStorlek(int x)
         {
             progressBar1.Value = 0;
@@ -196,10 +197,18 @@ namespace försök_till_bra_spel
                     int längd = random.Next(1, 8);
                     for (int i = 0; i < längd; i++)
                     {
+                        
+                        underblock = blocktyp;
+                        
                         for (int index = 0; index <= i; index++)
                         {
-                            VärldsLista[ystart + yplats][xplats] = blocktyp;
-                            if (yplats + ystart < VärldsLista.Count - 1)
+                            VärldsLista[ystart + yplats][xplats] = underblock;
+                            if (blocktyp == 1)
+                            {
+                                underblock = 3;
+                            }
+                            
+                                if (yplats + ystart < VärldsLista.Count - 1)
                                 yplats++;
                         }
                         felsök();
@@ -216,9 +225,14 @@ namespace försök_till_bra_spel
                     int längd = random.Next(1, 8);
                     for (int i = 0; i < längd; i++)
                     {
+                        underblock = blocktyp;
                         for (int index = 0; index <= i; index++)
                         {
-                            VärldsLista[ystart + yplats][xplats] = blocktyp;
+                            VärldsLista[ystart + yplats][xplats] = underblock;
+                            if (blocktyp == 1)
+                            {
+                                underblock = 3;
+                            }
                             if (yplats + ystart > 30)
                                 yplats--;
                             else
@@ -242,9 +256,14 @@ namespace försök_till_bra_spel
                     int längd = random.Next(1, 8);
                     for (int i = längd - 1; i >= 0; i--)
                     {
+                        underblock = blocktyp;
                         for (int index = 0; index <= i; index++)
                         {
-                            VärldsLista[ystart + yplats][xplats] = blocktyp;
+                            VärldsLista[ystart + yplats][xplats] = underblock;
+                            if (blocktyp == 1)
+                            {
+                                underblock = 3;
+                            }
                             if (yplats + ystart < VärldsLista.Count - 1)
                                 yplats++;
                         }
@@ -258,9 +277,14 @@ namespace försök_till_bra_spel
                     int längd = random.Next(1, 8);
                     for (int i = längd - 1; i >= 0; i--)
                     {
+                        underblock = blocktyp;
                         for (int index = 0; index <= i; index++)
                         {
-                            VärldsLista[ystart + yplats][xplats] = blocktyp;
+                            VärldsLista[ystart + yplats][xplats] = underblock;
+                            if (blocktyp == 1)
+                            {
+                                underblock = 3;
+                            }
                             if (ystart + yplats > 30)
                                 yplats--;
                             else
@@ -302,17 +326,27 @@ namespace försök_till_bra_spel
         }
         public void felsök()
         {
+            
             if (xplats >= xlängd - 1)
             {
                 stop = true;
             }
-            for (int i = 0; i < 7; i++)
+            
+            
+                underblock = blocktyp;
+            
+            for (int i = 0; i < 17; i++)
             {
-                VärldsLista[ystart + yplats + i][xplats] = blocktyp;
+                VärldsLista[ystart + yplats + i][xplats] = underblock;
+                if (blocktyp == 1)
+                {
+                    underblock = 3;
+                }
                 if (ystart + yplats + i >= VärldsLista.Count - 1)
                 {
                     break;
                 }
+                
             }
         }
         public void underworld()
@@ -497,7 +531,7 @@ namespace försök_till_bra_spel
             label1.Update();
             progressBar1.Value = 0;
 
-            for (int i = 0; i < VärldsLista.Count / 10; i++)
+            for (int i = 0; i < VärldsLista.Count / 5; i++)
             {
                 stop = false;
                 addX = 0;
