@@ -88,9 +88,9 @@ namespace försök_till_bra_spel
             }
             else if (storleken == 4)
             {
-                xlängd = 25000;
-                ybredd = 7500;
-                ystart = 2500;
+                xlängd = 20000;
+                ybredd = 6000;
+                ystart = 2000;
             }
             for (int i = 0; i < ybredd; i++)
             {
@@ -463,7 +463,7 @@ namespace försök_till_bra_spel
 
                 for (int x = 0; x < cavelenght; x++)
                 {
-                    if (caveboty - cavetopy >= 1 && caveboty < 7500)
+                    if (caveboty - cavetopy >= 1 && caveboty < ybredd)
                     {
                         for (int air = cavetopy; air <= caveboty; air++)
                         {
