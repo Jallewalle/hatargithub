@@ -694,8 +694,7 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 0 ||
-                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1] == 6)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] - 1]==0)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] - 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
@@ -709,8 +708,7 @@ namespace försök_till_bra_spel
                                         }
                                         try
                                         {
-                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0 ||
-                                                VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 6)
+                                            if (VärldsLista[ExpanderandeVattenY[i2]][ExpanderandeVattenX[i2] + 1] == 0)
                                             {
                                                 ExpanderandeVattenXtemp.Add(ExpanderandeVattenX[i2] + 1);
                                                 ExpanderandeVattenYtemp.Add(ExpanderandeVattenY[i2]);
