@@ -49,26 +49,36 @@ namespace försök_till_bra_spel
         private void skapa()
         {
             skapavärld2.Show();
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.getStorlek(storlek);
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.skapavärlden();
+            skapavärld2.progressBar2.Value += 10;
 
             name = textBox1.Text;
             skapavärld2.getvärldnamn(name);
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.underworld();
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.caves();
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.floatingislands();
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.mineralerV2();
+            skapavärld2.progressBar2.Value += 10;
 
             skapavärld2.skapavatten();
-            
+            skapavärld2.progressBar2.Value += 10;
+
             skapavärld2.sparavärlden();
-            
+            skapavärld2.progressBar2.Value += 10;
+
         }
         public void updatelabel()
         {
