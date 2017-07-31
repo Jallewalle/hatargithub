@@ -17,7 +17,7 @@ namespace försök_till_bra_spel
         Spelvärld spelvärld = new Spelvärld();
         Ladda_värld laddavärld = new Ladda_värld();
         Skapavärld skapavärld = new Skapavärld();
-        minimap map = new minimap();
+        minimap map = new minimap(); //
 
         string valdmap;
         public Start()
