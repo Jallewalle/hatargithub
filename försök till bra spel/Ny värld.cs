@@ -45,24 +45,7 @@ namespace försök_till_bra_spel
             skapa();
 
         }
-        public void progressbar()
-        {
-            progressBar1.Value += 1;
-            progressBar1.PerformStep();
-        }
-        public void progressBarTotalUpdate(int value)
-        {
-            try
-            {
-                progressBarTotal.Value += value;
-            }
-            catch (Exception)
-            {
-
-                progressBarTotal.Value = 100;
-            }
-
-        }
+        
         private void skapa()
         {
             skapavärld2.Show();

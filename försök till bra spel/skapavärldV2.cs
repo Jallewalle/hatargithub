@@ -63,6 +63,9 @@ namespace försök_till_bra_spel
 
         public void getStorlek(int x)
         {
+            progressBar1.Value = 0;
+            label1.Text = "Hämtar storlek";
+            label1.Update();
             storleken = x;
             if (storleken == 1)
             {
@@ -89,13 +92,20 @@ namespace försök_till_bra_spel
                 {
                     VärldsLista[i].Add(0);
                 }
+                if (i % (ybredd / 100) == 0)
+                {
+                    progressBar1.PerformStep();
+                }
 
             }
 
         }
         public void skapavärlden()
         {
-
+            progressBar1.Value = 0;
+            int progress = -1;
+            label1.Text = "Skapar terräng";
+            label1.Update();
             for (int biomes = 0; biomes < xlängd / 10; biomes++)
             {
                 if (biomes % 3 == 0)
@@ -268,6 +278,11 @@ namespace försök_till_bra_spel
                         xplats++;
                     }
                 }
+                if (xplats / (VärldsLista[1].Count/100) > progress)
+                {
+                    progressBar1.PerformStep();
+                    progress += 1;
+                }
                 if (xplats >= xlängd - 1)
                 {
                     break;
@@ -280,6 +295,9 @@ namespace försök_till_bra_spel
         }
         public void getvärldnamn(string x)
         {
+            progressBar1.Value = 0;
+            label1.Text = "Hämtar namn";
+            label1.Update();
             WorldName = x;
         }
         public void felsök()
@@ -299,6 +317,9 @@ namespace försök_till_bra_spel
         }
         public void underworld()
         {
+            label1.Text = "Fyller marken";
+            label1.Update();
+            progressBar1.Value = 0;
             for (int index = 0; index < VärldsLista[1].Count; index++)
             {
                 int blocksner = 0;
@@ -327,6 +348,10 @@ namespace försök_till_bra_spel
                     }
                     blocksner++;
 
+                }
+                if (index % (VärldsLista[1].Count/100) == 0)
+                {
+                    progressBar1.PerformStep();
                 }
             }
 
@@ -367,6 +392,9 @@ namespace försök_till_bra_spel
         }
         public void mineralerV2()
         {
+            label1.Text = "Placerar mineraler";
+            label1.Update();
+            progressBar1.Value = 0;
             for (int i = 0; i < VärldsLista.Count; i++)
             {
                 xplats = random.Next(0, VärldsLista[1].Count);
@@ -396,12 +424,19 @@ namespace försök_till_bra_spel
                         }
                     }
                 }
+                if (i % (VärldsLista.Count/100) == 0)
+                {
+                    progressBar1.PerformStep();
+                }
             }
         }
         public void caves()
         {
             int cavelenght = 0;
             int caveheight = 0;
+            label1.Text = "Placerar grottor";
+            label1.Update();
+            progressBar1.Value = 0;
             for (int index = 0; index < VärldsLista.Count / 2; index++)
             {
                 cavelenght = random.Next(VärldsLista.Count / 100, VärldsLista.Count / 5);
@@ -448,12 +483,19 @@ namespace försök_till_bra_spel
                     }
 
                 }
+                if (index % ((VärldsLista.Count / 2)/100) == 0)
+                {
+                    progressBar1.PerformStep();
+                }
 
             }
 
         }
         public void skapavatten()
         {
+            label1.Text = "Placerar vatten";
+            label1.Update();
+            progressBar1.Value = 0;
 
             for (int i = 0; i < VärldsLista.Count / 10; i++)
             {
@@ -659,10 +701,17 @@ namespace försök_till_bra_spel
 
 
                 }
+                if (i % (VärldsLista.Count / 10)/100 == 0)
+                {
+                    progressBar1.PerformStep();
+                }
             }
         }
         public void floatingislands()
         {
+            label1.Text = "skapar öar";
+            label1.Update();
+            progressBar1.Value = 0;
             int islandlenght = 0;
             int islandheight = 0;
             for (int index = 0; index < VärldsLista.Count / 500; index++)
@@ -710,8 +759,19 @@ namespace försök_till_bra_spel
                         }
                     }
                 }
+                if (VärldsLista.Count == 3000)
+                {
+                    progressBar1.Value += 15;
+                    progressBar1.PerformStep();
+                }
+                else
+                {
+                    progressBar1.Value = 99;
+                    progressBar1.PerformStep();
+                }
 
             }
+
         }
         public void sparavärlden()
         {
