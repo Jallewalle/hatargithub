@@ -82,7 +82,7 @@ namespace försök_till_bra_spel
             else if (storleken == 3)
             {
                 xlängd = 500;
-                ybredd = 150;
+                ybredd = 200;
                 ystart = 50;
             }
             for (int i = 0; i < ybredd; i++)
@@ -781,24 +781,16 @@ namespace försök_till_bra_spel
             label1.Update();
             progressBar1.Value = 0;
             Världen.Add(storleken.ToString());
-            if (WorldName != "")
+
+            for (int Ycoordinate = 0; Ycoordinate < ybredd; Ycoordinate++)
             {
-                for (int Ycoordinate = 0; Ycoordinate < ybredd; Ycoordinate++)
+                for (int Xcoordinate = 0; Xcoordinate < xlängd; Xcoordinate++)
                 {
-                    for (int Xcoordinate = 0; Xcoordinate < xlängd; Xcoordinate++)
+                    if (Xcoordinate + 1 < VärldsLista[Ycoordinate].Count() - 1)
                     {
-                        if (Xcoordinate + 1 < VärldsLista[Ycoordinate].Count() - 1)
+                        if (test[VärldsLista[Ycoordinate][Xcoordinate]].ToString() == test[VärldsLista[Ycoordinate][Xcoordinate + 1]].ToString())
                         {
-                            if (test[VärldsLista[Ycoordinate][Xcoordinate]].ToString() == test[VärldsLista[Ycoordinate][Xcoordinate + 1]].ToString())
-                            {
-                                temp++;
-                            }
-                            else
-                            {
-                                text += temp.ToString();
-                                text += test[VärldsLista[Ycoordinate][Xcoordinate]].ToString();
-                                temp = 1;
-                            }
+                            temp++;
                         }
                         else
                         {
@@ -807,27 +799,32 @@ namespace försök_till_bra_spel
                             temp = 1;
                         }
                     }
-                    text += "x";
-                    Världen.Add(text);
-                    text = "";
-                    if (Ycoordinate % (ybredd/100) == 0)
+                    else
                     {
-                        progressBar1.PerformStep();
+                        text += temp.ToString();
+                        text += test[VärldsLista[Ycoordinate][Xcoordinate]].ToString();
+                        temp = 1;
                     }
-
-
-
+                }
+                text += "x";
+                Världen.Add(text);
+                text = "";
+                if (Ycoordinate % (ybredd / 100) == 0)
+                {
+                    progressBar1.PerformStep();
                 }
 
-                System.IO.File.WriteAllLines(@"F:\AAAWorlds\Worlds\" + WorldName + ".txt", Världen);
-                laddavärld.öppnavärld("F:\\AAAWorlds\\Worlds\\" + WorldName + ".txt");
+            }
 
-            }
-            else
+            if (WorldName == "")
             {
-                MessageBox.Show("Döp Världen");
+                WorldName = random.Next(1000, 10000).ToString();
             }
+            System.IO.File.WriteAllLines(@"F:\AAAWorlds\Worlds\" + WorldName + ".txt", Världen);
+            laddavärld.öppnavärld("F:\\AAAWorlds\\Worlds\\" + WorldName + ".txt");
+            MessageBox.Show("Din värld har blivit sparad med namnet: " + WorldName);
+
         }
-    
+
     }
 }

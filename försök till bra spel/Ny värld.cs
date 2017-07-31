@@ -69,7 +69,6 @@ namespace försök_till_bra_spel
             
             skapavärld2.sparavärlden();
             
-            MessageBox.Show("Sparat");
         }
         public void updatelabel()
         {
