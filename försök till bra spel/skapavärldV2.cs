@@ -784,7 +784,15 @@ namespace försök_till_bra_spel
                     {
                         for (int air = islandtopy; air <= islandboty; air++)
                         {
-                            VärldsLista[air][xplats + x] = 1;
+                            if (air == islandtopy)
+                            {
+                                VärldsLista[air][xplats + x] = 1;
+                            }
+                            else
+                            {
+                                VärldsLista[air][xplats + x] = 3;
+                            }
+                            
                         }
                     }
                     else
