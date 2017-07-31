@@ -626,6 +626,18 @@ namespace försök_till_bra_spel
 
                                             //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
                                         }
+                                        try
+                                        {
+                                            if (VärldsLista[ExpanderandeVattenY[i2 -1]][ExpanderandeVattenX[i2]] == 0)
+                                            {
+                                                VärldsLista[ExpanderandeVattenY[i2 -1]][ExpanderandeVattenX[i2]] == 6;
+                                            }
+                                        }
+                                        catch (Exception)
+                                        {
+
+                                            //testar om han inte är utanför mappen och föröker expandera. temporär lösning.
+                                        }
 
                                     }
                                     }
