@@ -362,7 +362,6 @@ namespace försök_till_bra_spel
 
             }
         }
-
         public void mineralerV2()
         {
             for (int i = 0; i < VärldsLista.Count; i++)
@@ -714,7 +713,7 @@ namespace försök_till_bra_spel
         }
         public void sparavärlden()
         {
-            Ny_värld nyvärld = new Ny_värld();
+            
             int temp = 1;
             Världen.Add(storleken.ToString());
             if (WorldName != "")
@@ -746,11 +745,8 @@ namespace försök_till_bra_spel
                     text += "x";
                     Världen.Add(text);
                     text = "";
-                    if (Ycoordinate % 30 == 0)
-                    {
-                        nyvärld.progressBar1.Value += 1;
-                        nyvärld.progressBar1.Update();
-                    }
+
+                    
                     
                 }
                            
