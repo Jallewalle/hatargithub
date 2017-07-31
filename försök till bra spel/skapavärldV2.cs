@@ -207,14 +207,17 @@ namespace försök_till_bra_spel
                             {
                                 underblock = 3;
                             }
-                            
-                                if (yplats + ystart < VärldsLista.Count - 1)
+
+                            if (yplats + ystart < VärldsLista.Count - 1)
                                 yplats++;
                         }
-                        felsök();
                         if (stop)
                         {
                             break;
+                        }
+                        if (blocktyp != 1)
+                        {
+                            felsök();
                         }
                         xplats++;
                     }
@@ -267,7 +270,11 @@ namespace försök_till_bra_spel
                             if (yplats + ystart < VärldsLista.Count - 1)
                                 yplats++;
                         }
-                        felsök();
+                        if (blocktyp != 1)
+                        {
+                            felsök();
+                        }
+
                         xplats++;
                     }
                 }
@@ -333,7 +340,7 @@ namespace försök_till_bra_spel
             }
             
             
-                underblock = blocktyp;
+            underblock = blocktyp;
             
             for (int i = 0; i < 17; i++)
             {
