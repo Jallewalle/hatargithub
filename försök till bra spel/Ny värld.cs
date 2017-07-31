@@ -19,6 +19,7 @@ namespace försök_till_bra_spel
         public Ny_värld()
         {
             InitializeComponent();
+            textBox1.Focus();
         }
 
         int storlek;
