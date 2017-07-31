@@ -89,5 +89,11 @@ namespace försök_till_bra_spel
         {
         
     }
-}
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            storlek = 4;
+            skapa();
+        }
+    }
 }
