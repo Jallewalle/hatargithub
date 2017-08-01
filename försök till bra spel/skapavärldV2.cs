@@ -911,7 +911,7 @@ namespace försök_till_bra_spel
                         {
                             VärldsLista[y-i2 -1][xplats] = 8;
                         }// gör ett träd!
-                        if (random.Next(1,2) == 1)
+                        if (slump >5)
                         {
                             VärldsLista[y - slump - 3][xplats] = 9;
                             VärldsLista[y - slump - 2][xplats-1] = 9;
