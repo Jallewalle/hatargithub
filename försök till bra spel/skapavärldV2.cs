@@ -908,18 +908,46 @@ namespace försök_till_bra_spel
                         slump = random.Next(4,7);
                         for (int i2 = 0; i2 < slump ; i2++)
                         {
-                            VärldsLista[y-i2 +1][xplats] = 8;
+                            VärldsLista[y-i2 -1][xplats] = 8;
                         }// gör ett träd!
-                        VärldsLista[y - slump - 1][xplats] = 9;
-                        VärldsLista[y - slump - 2][xplats] = 9;
-                        VärldsLista[y - slump - 1][xplats-1] = 9;
-                        VärldsLista[y - slump - 1][xplats+1] = 9;
-                        VärldsLista[y - slump][xplats-2] = 9;
-                        VärldsLista[y - slump][xplats-1] = 9;
-                        VärldsLista[y - slump][xplats +1] = 9;
-                        VärldsLista[y - slump][xplats +2] = 9;
-                        VärldsLista[y - slump + 1][xplats-1] = 9;
-                        VärldsLista[y - slump + 1][xplats+1] = 9;
+                        if (random.Next(1,2) == 1)
+                        {
+                            VärldsLista[y - slump - 3][xplats] = 9;
+                            VärldsLista[y - slump - 2][xplats-1] = 9;
+                            VärldsLista[y - slump - 2][xplats] = 9;
+                            VärldsLista[y - slump - 2][xplats+1] = 9;
+                            VärldsLista[y - slump - 1][xplats - 2] = 9;
+                            VärldsLista[y - slump - 1][xplats - 1] = 9;
+                            VärldsLista[y - slump - 1][xplats] = 9;
+                            VärldsLista[y - slump - 1][xplats + 1] = 9;
+                            VärldsLista[y - slump - 1][xplats + 2] = 9;
+                            VärldsLista[y - slump][xplats - 3] = 9;
+                            VärldsLista[y - slump][xplats - 2] = 9;
+                            VärldsLista[y - slump][xplats - 1] = 9;
+                            VärldsLista[y - slump][xplats + 1] = 9;
+                            VärldsLista[y - slump][xplats + 2] = 9;
+                            VärldsLista[y - slump][xplats + 3] = 9;
+                            VärldsLista[y - slump + 1][xplats - 2] = 9;
+                            VärldsLista[y - slump + 1][xplats - 1] = 9;
+                            VärldsLista[y - slump + 1][xplats + 1] = 9;
+                            VärldsLista[y - slump + 1][xplats + 2] = 9;
+                            VärldsLista[y - slump + 2][xplats - 1] = 9;
+                            VärldsLista[y - slump + 2][xplats + 1] = 9;
+                        }
+                        else
+                        {
+                            VärldsLista[y - slump - 1][xplats] = 9;
+                            VärldsLista[y - slump - 2][xplats] = 9;
+                            VärldsLista[y - slump - 1][xplats - 1] = 9;
+                            VärldsLista[y - slump - 1][xplats + 1] = 9;
+                            VärldsLista[y - slump][xplats - 2] = 9;
+                            VärldsLista[y - slump][xplats - 1] = 9;
+                            VärldsLista[y - slump][xplats + 1] = 9;
+                            VärldsLista[y - slump][xplats + 2] = 9;
+                            VärldsLista[y - slump + 1][xplats - 1] = 9;
+                            VärldsLista[y - slump + 1][xplats + 1] = 9;
+                        }
+                        
                     }
                 }
             }
