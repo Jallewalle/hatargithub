@@ -23,9 +23,9 @@ namespace försök_till_bra_spel
         List<List<int>> VärldsLista = new List<List<int>>();
         string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
-        //saknas: Flytande öar, maskhål, fixa vattnet och mer greor
+        //saknas: Flytande öar, maskhål, fixa vattnet och mer greor, träd, hus
 
-        //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8+ odefinerat
+        //0 air, 1 Grass, 2 stone, 3 dirt, 4 sand, 5 Lava, 6 TopWater , 7 BotWater, 8 trä, 9 löv, 10+ odefinerat
         #region listorna
         List<string> Världen = new List<string>();
         List<int> ExpanderandeVattenX = new List<int>();
@@ -514,8 +514,8 @@ namespace försök_till_bra_spel
             progressBar1.Value = 0;
             for (int i = 0; i < VärldsLista.Count; i++)
             {
-                xplats = random.Next(0, VärldsLista[1].Count);
-                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
+                xplats = random.Next(0, VärldsLista[1].Count-15);
+                yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count-15);
 
                 blocktyp = 8;
                 int xlength = random.Next(5, 15);
@@ -895,6 +895,20 @@ namespace försök_till_bra_spel
             laddavärld.öppnavärld("F:\\AAAWorlds\\Worlds\\" + WorldName + ".txt");
             MessageBox.Show("Din värld har blivit sparad med namnet: " + WorldName);
 
+        }
+        public void träd()
+        {
+            for (int i = 0; i < VärldsLista.Count()/10; i++)
+            {
+                xplats = random.Next(5, VärldsLista[1].Count());
+                for (int y = 0; y < VärldsLista.Count(); y++)
+                {
+                    if (VärldsLista[xplats][y] == 1 && VärldsLista[xplats][y-1]== 0)
+                    {
+                        // gör ett träd! 
+                    }
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
