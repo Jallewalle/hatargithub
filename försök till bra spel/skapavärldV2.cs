@@ -21,7 +21,7 @@ namespace försök_till_bra_spel
 
 
         List<List<int>> VärldsLista = new List<List<int>>();
-        string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
+        string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j"};
 
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor, träd, hus
 

@@ -24,7 +24,7 @@ namespace försök_till_bra_spel
             int storlekenx = 0;
             int storlekeny = 0;
             string antal = "";
-            char[] Convertera = { 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k' };
+            char[] Convertera = { 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k' ,'l'};
             text = text.Trim();
             if (text[0] == '1')
             {

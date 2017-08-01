@@ -36,7 +36,7 @@ namespace försök_till_bra_spel
         Font drawFont = new Font("Arial", 20);
         #region bildr
 
-        Image Grass = försök_till_bra_spel.Properties.Resources.Grass;
+        Image Grass = försök_till_bra_spel.Properties.Resources.TopGrass;
         Image Stone = försök_till_bra_spel.Properties.Resources.Stone;
         Image Dirt = försök_till_bra_spel.Properties.Resources.Dirt;
         Image Sand = försök_till_bra_spel.Properties.Resources.Sand;
@@ -60,7 +60,9 @@ namespace försök_till_bra_spel
             Blocks.Add(Lava); //6
             Blocks.Add(TopWater); //7
             Blocks.Add(BotWater); //8
-            Blocks.Add(Tbd); //9
+            Blocks.Add(Tbd); //9 träd
+            Blocks.Add(Tbd); //10 löv
+            Blocks.Add(Tbd); //99 tbd
         }
         protected override void OnPaint(PaintEventArgs e)
         {
