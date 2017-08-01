@@ -44,12 +44,14 @@ namespace försök_till_bra_spel
             else if (text[0] == '4')
             {
                 storlekenx = 20000;
-                storlekeny = 7000;
+                storlekeny = 6000;
             }
 
             for (int i = 0; i < storlekeny; i++)
             {
                 VärldsLista.Add(new List<int>());
+                int ay = text.Length;
+                char aas = text[ay - 1];
                 while (text[xindexstring] != 'x')
                 {
                     if (text[xindexstring] == '\r' || text[xindexstring] == '\n')
