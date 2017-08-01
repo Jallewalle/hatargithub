@@ -25,13 +25,13 @@ namespace försök_till_bra_spel
 
         //default: blockstorlek = 20, width = 60, height = 29
         int updown = 1000;
-        int blockstorlek = 10;
-        int width = 120;
-        int height = 60;
+        int blockstorlek = 20;
+        int width = 60;
+        int height = 30;
         int gravity = 14;
         int jumpheight = 0;
-        int movespeedx = 25;
-        int movespeedy = 25;
+        int movespeedx = 10;
+        int movespeedy = 10;
 
         Font drawFont = new Font("Arial", 20);
         #region bildr
@@ -46,6 +46,8 @@ namespace försök_till_bra_spel
         Image Tbd = försök_till_bra_spel.Properties.Resources.Tbd;
         Image TopWater = försök_till_bra_spel.Properties.Resources.TopWater;
         Image BotWater = försök_till_bra_spel.Properties.Resources.BotWater;
+        Image Löv = försök_till_bra_spel.Properties.Resources.Löv;
+        Image Träd = försök_till_bra_spel.Properties.Resources.Träd;
         #endregion
 
         public Spelvärld()
@@ -60,8 +62,8 @@ namespace försök_till_bra_spel
             Blocks.Add(Lava); //6
             Blocks.Add(TopWater); //7
             Blocks.Add(BotWater); //8
-            Blocks.Add(Tbd); //9 träd
-            Blocks.Add(Tbd); //10 löv
+            Blocks.Add(Träd); //9 träd
+            Blocks.Add(Löv); //10 löv
             Blocks.Add(Tbd); //99 tbd
         }
         protected override void OnPaint(PaintEventArgs e)

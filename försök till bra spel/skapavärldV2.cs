@@ -21,7 +21,7 @@ namespace försök_till_bra_spel
 
 
         List<List<int>> VärldsLista = new List<List<int>>();
-        string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j"};
+        string[] test = { "a", "b", "c", "d", "e", "f", "g", "h", "i" ,"j","k","l"};
 
         //saknas: Flytande öar, maskhål, fixa vattnet och mer greor, träd, hus
 
@@ -414,12 +414,13 @@ namespace försök_till_bra_spel
         }
         public void mineraler()
         {
+            //HET!
             for (int i = 0; i < VärldsLista.Count; i++)
             {
                 xplats = random.Next(0, VärldsLista[1].Count);
                 yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count);
 
-                blocktyp = 8;
+                blocktyp = 11;
                 int xlength = random.Next(9, 15);
                 int ylength = random.Next(9, 15);
                 for (int ylängd = 0; ylängd < xlength; ylängd++)
@@ -517,7 +518,7 @@ namespace försök_till_bra_spel
                 xplats = random.Next(0, VärldsLista[1].Count-15);
                 yplats = random.Next(VärldsLista.Count / 3, VärldsLista.Count-15);
 
-                blocktyp = 8;
+                blocktyp = 10;
                 int xlength = random.Next(5, 15);
                 int ylength = random.Next(5, 15);
                 for (int ylängd = 0; ylängd < xlength; ylängd++)

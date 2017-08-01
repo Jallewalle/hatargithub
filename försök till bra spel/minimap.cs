@@ -20,6 +20,7 @@ namespace försök_till_bra_spel
 
         List<List<int>> värld = new List<List<int>>();
         string name;
+        
         public void createmap(List<List<int>> x, int längd, int höjd)
         {
             värld = x;
@@ -28,13 +29,14 @@ namespace försök_till_bra_spel
             name = rand.Next(10000, 100000).ToString();
             Bitmap bmp = new Bitmap(xlängd, yhöjd);
             
+
             for (int i = 0; i < xlängd; i++)
             {
                 for (int index = 0; index < yhöjd; index++)
                 {
                     if (värld[index][i] == 1)
                     {
-                        bmp.SetPixel(i, index, Color.Cyan);
+                        bmp.SetPixel(i, index, Color.Blue);
                     }
                     else if (värld[index][i] == 2)
                     {
@@ -64,6 +66,14 @@ namespace försök_till_bra_spel
                     {
                         bmp.SetPixel(i, index, Color.DarkBlue);
                     }
+                    else if (värld[index][i] == 9)
+                    {
+                        bmp.SetPixel(i, index, Color.SaddleBrown);
+                    }
+                    else if (värld[index][i] == 10)
+                    {
+                        bmp.SetPixel(i, index, Color.LightGreen);
+                    }
                     else
                     {
                         bmp.SetPixel(i, index, Color.Pink);
@@ -76,7 +86,7 @@ namespace försök_till_bra_spel
                 }
                 
             }
-            minimap.ActiveForm.Close();
+            //minimap.ActiveForm.Close();
             bmp.Save("F:\\AAAWorlds\\Textures\\WorldMap\\" + name + ".png");
         }
 
