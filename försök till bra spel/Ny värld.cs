@@ -77,6 +77,8 @@ namespace försök_till_bra_spel
             skapavärld2.skapavatten();
             skapavärld2.progressBar2.Value += 10;
 
+            skapavärld2.träd();
+
             skapavärld2.sparavärlden();
             skapavärld2.progressBar2.Value += 10;
 

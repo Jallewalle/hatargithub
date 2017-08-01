@@ -900,12 +900,26 @@ namespace försök_till_bra_spel
         {
             for (int i = 0; i < VärldsLista.Count()/10; i++)
             {
-                xplats = random.Next(5, VärldsLista[1].Count());
-                for (int y = 0; y < VärldsLista.Count(); y++)
+                xplats = random.Next(5, VärldsLista[1].Count()-5);
+                for (int y = 10; y < VärldsLista.Count()-20; y++)
                 {
-                    if (VärldsLista[xplats][y] == 1 && VärldsLista[xplats][y-1]== 0)
+                    if (VärldsLista[y][xplats] == 1 && VärldsLista[y-1][xplats]== 0)
                     {
-                        // gör ett träd! 
+                        slump = random.Next(4,7);
+                        for (int i2 = 0; i2 < slump+1 ; i2++)
+                        {
+                            VärldsLista[y-i2][xplats] = 8;
+                        }// gör ett träd!
+                        VärldsLista[y - slump - 1][xplats] = 9;
+                        VärldsLista[y - slump - 2][xplats] = 9;
+                        VärldsLista[y - slump - 1][xplats-1] = 9;
+                        VärldsLista[y - slump - 1][xplats+1] = 9;
+                        VärldsLista[y - slump][xplats-2] = 9;
+                        VärldsLista[y - slump][xplats-1] = 9;
+                        VärldsLista[y - slump][xplats +1] = 9;
+                        VärldsLista[y - slump][xplats +2] = 9;
+                        VärldsLista[y - slump + 1][xplats-1] = 9;
+                        VärldsLista[y - slump + 1][xplats+1] = 9;
                     }
                 }
             }
