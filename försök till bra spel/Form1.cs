@@ -32,7 +32,6 @@ namespace försök_till_bra_spel
         
         private void button3_Click(object sender, EventArgs e)
         {
-
             try
             {
                 nyvärld.Show();
@@ -55,8 +54,7 @@ namespace försök_till_bra_spel
             {
                 
                 MessageBox.Show("HAHA RÄKAD");
-            }
-            
+            }         
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -94,7 +92,8 @@ namespace försök_till_bra_spel
         private void button6_Click(object sender, EventArgs e)
         {
             map.Show();
-            map.createmap(laddavärld.hämtavärld(), 20000, 6000);
+            map.createmap(laddavärld.hämtavärld(), 20000, 6000);     
+
         }
     }
 }
