@@ -904,8 +904,22 @@ namespace försök_till_bra_spel
                 xplats = random.Next(5, VärldsLista[1].Count()-5);
                 for (int y = 10; y < VärldsLista.Count()-20; y++)
                 {
-                    if (VärldsLista[y][xplats] == 1 && VärldsLista[y-1][xplats]== 0)
+                    if (VärldsLista[y][xplats] == 1 && VärldsLista[y - 1][xplats] == 0 ||
+                        VärldsLista[y][xplats] == 3 && VärldsLista[y - 1][xplats] == 0)
                     {
+                        yplats = y -5;
+                        while (yplats > VärldsLista.Count / 4)
+                        {
+                            if (VärldsLista[yplats][xplats] == 3)
+                            {
+                                break;
+                            }
+                            yplats--;
+                        }
+                        if (VärldsLista[yplats][xplats] == 3)
+                        {
+                            break;
+                        }
                         slump = random.Next(4,7);
                         for (int i2 = 0; i2 < slump ; i2++)
                         {
@@ -948,6 +962,7 @@ namespace försök_till_bra_spel
                             VärldsLista[y - slump + 1][xplats - 1] = 9;
                             VärldsLista[y - slump + 1][xplats + 1] = 9;
                         }
+                        yplats = 0;
                         
                     }
                 }
