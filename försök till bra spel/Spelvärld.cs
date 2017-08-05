@@ -54,6 +54,7 @@ namespace försök_till_bra_spel
         Image Löv = försök_till_bra_spel.Properties.Resources.Löv;
         Image Träd = försök_till_bra_spel.Properties.Resources.Träd;
         Image player = försök_till_bra_spel.Properties.Resources.PlayerModel;
+        Image playerfall = försök_till_bra_spel.Properties.Resources.PlayerModelHopp;
         #endregion
 
         public Spelvärld()
@@ -87,7 +88,14 @@ namespace försök_till_bra_spel
                         g.DrawImage(Blocks[Blocktyp], (xcord * blockstorlek - move * blockstorlek - movepixel) - blockstorlek, (ycord * blockstorlek - updown * blockstorlek) + jumpheight - blockstorlek, blockstorlek, blockstorlek);
                     }
                 }
-                g.DrawImage(player, playerX*blockstorlek - blockstorlek, playerY*blockstorlek);
+                if (fall == true)
+                {
+                    g.DrawImage(playerfall, playerX * blockstorlek - blockstorlek, playerY * blockstorlek);
+                }
+                else
+                {
+                    g.DrawImage(player, playerX * blockstorlek - blockstorlek, playerY * blockstorlek);
+                }
                 //g.DrawImage(Tbd, 30 * blockstorlek, 13 * blockstorlek, 40, 60);
             }
             catch (Exception)
@@ -145,6 +153,7 @@ namespace försök_till_bra_spel
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            #region gå höger
             if (moveRight && move < Värld[1].Count - width - 1 &&
                 Värld[14 + updown][32 + move] == 1 &&
                 Värld[15 + updown][32 + move] == 1 &&
@@ -158,6 +167,9 @@ namespace försök_till_bra_spel
                     
                 }
             }
+            #endregion
+
+            #region gå vänster
             if (moveLeft && move > 0 &&
                 Värld[14 + updown][29 + move] == 1 &&
                 Värld[15 + updown][29 + move] == 1 &&
@@ -170,12 +182,16 @@ namespace försök_till_bra_spel
                     movepixel = 0; 
                 }
             }
+            #endregion
 
+            #region röra sig ned
             if (moveDown && updown < Värld.Count - height - 1)
             {
                 updown += movespeedy;
             }
+            #endregion
 
+            #region hoppa
             if (jump && updown > 0)
             {
                 if (Värld[13 + updown][30 + move] != 1 ||
@@ -249,10 +265,14 @@ namespace försök_till_bra_spel
             {
                 fall = false;
             }
+            #endregion
+
+            #region move up
             if (moveUp)
             {
                 updown -= movespeedx;
             }
+            #endregion
             Refresh();
         }
 
