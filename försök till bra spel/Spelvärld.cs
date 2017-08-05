@@ -210,6 +210,7 @@ namespace försök_till_bra_spel
                 Värld[17 + updown][31 + move] == 1 &&
                 jump == false)
             {
+                fall = true;
                 if (movepixel != 0)
                 {
                     if (movepixel > 0 && Värld[17 + updown][32 + move] == 1)
@@ -219,7 +220,7 @@ namespace försök_till_bra_spel
                         {
                             jumpheight = 0;
                             updown++;
-                            fall = true;
+                            
                         }
                     }
                     else if (movepixel < 0 && Värld[17 + updown][29 + move] == 1)
@@ -229,7 +230,7 @@ namespace försök_till_bra_spel
                         {
                             jumpheight = 0;
                             updown++;
-                            fall = true;
+                            
                         }
                     }
                 }
@@ -240,7 +241,7 @@ namespace försök_till_bra_spel
                     {
                         jumpheight = 0;
                         updown++;
-                        fall = true;
+                        
                     }
                 }
             }
