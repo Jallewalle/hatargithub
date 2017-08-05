@@ -910,7 +910,7 @@ namespace försök_till_bra_spel
                         yplats = y -5;
                         while (yplats > VärldsLista.Count / 4)
                         {
-                            if (VärldsLista[yplats][xplats] == 3)
+                            if (VärldsLista[yplats][xplats] != 0)
                             {
                                 break;
                             }
