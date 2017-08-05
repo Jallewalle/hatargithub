@@ -47,6 +47,7 @@ namespace försök_till_bra_spel
             {
                 färglägg(0,0);
             }
+            
      
         }
         public void färglägg(int startx, int starty)
@@ -111,6 +112,7 @@ namespace försök_till_bra_spel
             }
             //minimap.ActiveForm.Close();
             bmp.Save("F:\\AAAWorlds\\Textures\\WorldMap\\" + name + ".png");
+            
         }
         private void minimap_Load(object sender, EventArgs e)
         {
