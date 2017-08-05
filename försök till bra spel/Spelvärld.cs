@@ -22,6 +22,7 @@ namespace försök_till_bra_spel
         bool moveDown = false;
         bool jump = false;
         int move;
+        int movepixel;
 
         //default: blockstorlek = 20, width = 60, height = 29
         int updown = 1000;
@@ -30,8 +31,8 @@ namespace försök_till_bra_spel
         int height = 30;
         int gravity = 14;
         int jumpheight = 0;
-        int movespeedx = 10;
-        int movespeedy = 10;
+        int movespeedx = 1;
+        int movespeedy = 1;
 
         Font drawFont = new Font("Arial", 20);
         #region bildr
@@ -48,6 +49,7 @@ namespace försök_till_bra_spel
         Image BotWater = försök_till_bra_spel.Properties.Resources.BotWater;
         Image Löv = försök_till_bra_spel.Properties.Resources.Löv;
         Image Träd = försök_till_bra_spel.Properties.Resources.Träd;
+        Image player = försök_till_bra_spel.Properties.Resources.PlayerModel;
         #endregion
 
         public Spelvärld()
@@ -78,9 +80,10 @@ namespace försök_till_bra_spel
                     for (int xcord = move; xcord < move + width + 1; xcord++)
                     {
                         int Blocktyp = Värld[ycord][xcord];
-                        g.DrawImage(Blocks[Blocktyp], (xcord * blockstorlek - move * blockstorlek) - blockstorlek, (ycord * blockstorlek - updown * blockstorlek) + jumpheight - blockstorlek, blockstorlek, blockstorlek);
+                        g.DrawImage(Blocks[Blocktyp], (xcord * blockstorlek - move * blockstorlek - movepixel) - blockstorlek, (ycord * blockstorlek - updown * blockstorlek) + jumpheight - blockstorlek, blockstorlek, blockstorlek);
                     }
                 }
+                g.DrawImage(player, width*blockstorlek / 2, height*blockstorlek / 2 - 60);
             }
             catch (Exception)
             {
@@ -139,11 +142,21 @@ namespace försök_till_bra_spel
         {
             if (moveRight && move < Värld[1].Count - width - 1)
             {
-                move += movespeedx;
+                movepixel += movespeedx;
+                if (movepixel >= blockstorlek)
+                {
+                    move += 1;
+                    movepixel = 0;
+                }
             }
             if (moveLeft && move > 0)
             {
-                move -= movespeedx;
+                movepixel -= movespeedx;
+                if (movepixel <= -blockstorlek)
+                {
+                    movepixel = 0;
+                    move -= 1;
+                }
             }
             if (moveDown && updown < Värld.Count - height - 1)
             {
