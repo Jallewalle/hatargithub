@@ -968,7 +968,19 @@ namespace försök_till_bra_spel
                 }
             }
         }
-
+        public void tömlistor()
+        {
+            ExpanderandeVattenX = null;
+            ExpanderandeVattenY = null;
+            ExpanderandeVattenXtemp = null;
+            ExpanderandeVattenYtemp = null;
+            möjligaVattenX = null;
+            möjligaVattenY = null;
+            möjligaVattenLängd = null;
+            Världen = null;
+            test = null;
+            VärldsLista = null;
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
