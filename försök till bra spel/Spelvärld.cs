@@ -21,18 +21,22 @@ namespace försök_till_bra_spel
         bool moveUp = false;
         bool moveDown = false;
         bool jump = false;
+        bool fall = false;
         int move;
         int movepixel;
 
-        //default: blockstorlek = 20, width = 60, height = 29
+        //default: blockstorlek = 20, width = 61, height = 30
+        //default player position: x = 30,31, y = 14,15,16
         int updown = 1000;
         int blockstorlek = 20;
-        int width = 60;
+        int width = 61;
         int height = 30;
         int gravity = 14;
         int jumpheight = 0;
-        int movespeedx = 1;
-        int movespeedy = 1;
+        int movespeedx = 2;
+        int movespeedy = 2;
+        int playerX = 30;
+        int playerY = 13;
 
         Font drawFont = new Font("Arial", 20);
         #region bildr
@@ -83,7 +87,8 @@ namespace försök_till_bra_spel
                         g.DrawImage(Blocks[Blocktyp], (xcord * blockstorlek - move * blockstorlek - movepixel) - blockstorlek, (ycord * blockstorlek - updown * blockstorlek) + jumpheight - blockstorlek, blockstorlek, blockstorlek);
                     }
                 }
-                g.DrawImage(player, width*blockstorlek / 2, height*blockstorlek / 2 - 60);
+                g.DrawImage(player, playerX*blockstorlek - blockstorlek, playerY*blockstorlek);
+                //g.DrawImage(Tbd, 30 * blockstorlek, 13 * blockstorlek, 40, 60);
             }
             catch (Exception)
             {
@@ -109,7 +114,7 @@ namespace försök_till_bra_spel
             {
                 moveDown = true;
             }
-            else if (e.KeyCode == Keys.W && moveUp != true)
+            else if (e.KeyCode == Keys.W  && jump == false && fall == false)
             {
                 jump = true;
             }
@@ -140,32 +145,51 @@ namespace försök_till_bra_spel
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (moveRight && move < Värld[1].Count - width - 1)
+            if (moveRight && move < Värld[1].Count - width - 1 &&
+                Värld[14 + updown][32 + move] == 1 &&
+                Värld[15 + updown][32 + move] == 1 &&
+                Värld[16 + updown][32 + move] == 1)
             {
                 movepixel += movespeedx;
                 if (movepixel >= blockstorlek)
                 {
                     move += 1;
                     movepixel = 0;
+                    
                 }
             }
-            if (moveLeft && move > 0)
+            if (moveLeft && move > 0 &&
+                Värld[14 + updown][29 + move] == 1 &&
+                Värld[15 + updown][29 + move] == 1 &&
+                Värld[16 + updown][29 + move] == 1)
             {
                 movepixel -= movespeedx;
                 if (movepixel <= -blockstorlek)
                 {
-                    movepixel = 0;
                     move -= 1;
+                    movepixel = 0; 
                 }
             }
+
             if (moveDown && updown < Värld.Count - height - 1)
             {
                 updown += movespeedy;
             }
+
             if (jump && updown > 0)
             {
-                jumpheight +=gravity;
-                if (jumpheight >= blockstorlek)
+                if (Värld[13 + updown][30 + move] != 1 ||
+                    Värld[13 + updown][31 + move] != 1)
+                {
+                    gravity = 0;
+                }
+                else
+                {
+                    jumpheight += gravity;
+                }
+                
+                
+                if (jumpheight >= blockstorlek )
                 {
                     updown--;
                     jumpheight = 0;
@@ -176,11 +200,53 @@ namespace försök_till_bra_spel
                     jumpheight = 0;
                 }
                 gravity--;
-                if (gravity < -14)
+                if (gravity < 0)
                 {
                     gravity = 14;
                     jump = false;
                 }
+            }
+            if (Värld[17 + updown][30 + move] == 1 &&
+                Värld[17 + updown][31 + move] == 1 &&
+                jump == false)
+            {
+                if (movepixel != 0)
+                {
+                    if (movepixel > 0 && Värld[17 + updown][32 + move] == 1)
+                    {
+                        jumpheight--;
+                        if (jumpheight == -blockstorlek)
+                        {
+                            jumpheight = 0;
+                            updown++;
+                            fall = true;
+                        }
+                    }
+                    else if (movepixel < 0 && Värld[17 + updown][29 + move] == 1)
+                    {
+                        jumpheight--;
+                        if (jumpheight == -blockstorlek)
+                        {
+                            jumpheight = 0;
+                            updown++;
+                            fall = true;
+                        }
+                    }
+                }
+                else
+                {
+                    jumpheight--;
+                    if (jumpheight == -blockstorlek)
+                    {
+                        jumpheight = 0;
+                        updown++;
+                        fall = true;
+                    }
+                }
+            }
+            else
+            {
+                fall = false;
             }
             if (moveUp)
             {
