@@ -12,7 +12,10 @@ namespace försök_till_bra_spel
 {
     public partial class Spelvärld : Form
     {
+        //default: blockstorlek = 20, width = 61, height = 30
+        //default player position: x = 30,31, y = 14,15,16
 
+        #region variabler
         Ladda_värld laddavärld = new Ladda_värld();
         List<List<int>> Värld = new List<List<int>>();
         List<Image> Blocks = new List<Image>();
@@ -24,9 +27,6 @@ namespace försök_till_bra_spel
         bool fall = false;
         int move;
         int movepixel;
-
-        //default: blockstorlek = 20, width = 61, height = 30
-        //default player position: x = 30,31, y = 14,15,16
         int updown = 1000;
         int blockstorlek = 20;
         int width = 61;
@@ -37,6 +37,8 @@ namespace försök_till_bra_spel
         int movespeedy = 2;
         int playerX = 30;
         int playerY = 13;
+
+        #endregion
 
         Font drawFont = new Font("Arial", 20);
         #region bildr
