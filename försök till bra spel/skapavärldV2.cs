@@ -916,7 +916,7 @@ namespace försök_till_bra_spel
                             }
                             yplats--;
                         }
-                        if (VärldsLista[yplats][xplats] == 3)
+                        if (VärldsLista[yplats][xplats] !=0)
                         {
                             break;
                         }
