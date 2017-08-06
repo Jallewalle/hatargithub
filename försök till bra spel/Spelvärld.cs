@@ -157,11 +157,14 @@ namespace försök_till_bra_spel
         {
 
             #region gå höger
-            if (moveRight && move < Värld[1].Count - width - 1 &&
+            if ((moveRight && move < Värld[1].Count - width - 1 &&
                 Värld[14 + updown][32 + move] == 1 &&
                 Värld[15 + updown][32 + move] == 1 &&
                 Värld[16 + updown][32 + move] == 1 && 
-                jumpheight == 0)
+                jumpheight == 0) ||
+                (movepixel != 0 &&
+                moveRight && move < Värld[1].Count - width - 1 &&
+                jumpheight == 0))
             {
                 movepixel += movespeedx;
                 if (movepixel >= blockstorlek)
@@ -171,11 +174,14 @@ namespace försök_till_bra_spel
                     
                 }
             }
-            else if (moveRight && move < Värld[1].Count - width - 1 &&
+            else if ((moveRight && move < Värld[1].Count - width - 1 &&
                 Värld[14 + updown][32 + move] == 1 &&
                 Värld[15 + updown][32 + move] == 1 &&
                 Värld[16 + updown][32 + move] == 1 &&
-                Värld[17 + updown][32 + move] == 1)
+                Värld[17 + updown][32 + move] == 1) ||
+                (movepixel != 0 &&
+                moveRight && move < Värld[1].Count - width - 1 &&
+                jumpheight == 0))
             {
                 movepixel += movespeedx;
                 if (movepixel >= blockstorlek)
@@ -188,11 +194,14 @@ namespace försök_till_bra_spel
             #endregion
 
             #region gå vänster
-            if (moveLeft && move > 0 &&
+            if ((moveLeft && move > 0 &&
                 Värld[14 + updown][29 + move] == 1 &&
                 Värld[15 + updown][29 + move] == 1 &&
                 Värld[16 + updown][29 + move] == 1 &&
-                jumpheight == 0)
+                jumpheight == 0) ||
+                (movepixel != 0 &&
+                moveLeft && move > 0 &&
+                jumpheight == 0))
             {
                 movepixel -= movespeedx;
                 if (movepixel <= -blockstorlek)
@@ -201,11 +210,14 @@ namespace försök_till_bra_spel
                     movepixel = 0; 
                 }
             }
-            else if (moveLeft && move > 0 &&
+            else if ((moveLeft && move > 0 &&
                Värld[14 + updown][29 + move] == 1 &&
                Värld[15 + updown][29 + move] == 1 &&
                Värld[16 + updown][29 + move] == 1 &&
-               Värld[17 + updown][29 + move] == 1)
+               Värld[17 + updown][29 + move] == 1) ||
+                (movepixel != 0 &&
+                moveLeft && move > 0 &&
+                jumpheight == 0))
             {
                 movepixel -= movespeedx;
                 if (movepixel <= -blockstorlek)
