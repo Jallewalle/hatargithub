@@ -897,12 +897,110 @@ namespace försök_till_bra_spel
             MessageBox.Show("Din värld har blivit sparad med namnet: " + WorldName);
 
         }
+        public void bärbuske()
+        {
+            int x;
+            int busklängd = 0;
+            for (int i = 0; i < VärldsLista.Count()/10; i++)
+            {
+                xplats = random.Next(2, VärldsLista[1].Count()-20);
+                busklängd = random.Next(3, 10);
+                for (int y = 5; y < VärldsLista.Count()/2; y++)
+                {
+                    if (VärldsLista[y][xplats] == 1 && VärldsLista[y - 1][xplats] == 0 ||
+                        VärldsLista[y][xplats] == 3 && VärldsLista[y - 1][xplats] == 0)
+                    {
+                        x= xplats;
+                        while(x<6+ xplats)
+                        {
+                            if (VärldsLista[y][x] == 1 && VärldsLista[y - 1][x] == 0 ||
+                        VärldsLista[y][xplats] == 3 && VärldsLista[y - 1][xplats] == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                break;
+                            }
+
+                            x++;
+                        }
+                        if (VärldsLista[y][ x] == 1 && VärldsLista[y - 1][ x] == 0 ||
+                        VärldsLista[y][xplats] == 3 && VärldsLista[y - 1][xplats] == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                        yplats = y - 1;
+                        while (yplats > VärldsLista.Count / 4)
+                        {
+                            if (VärldsLista[yplats][xplats] != 0)
+                            {
+                                break;
+                            }
+                            yplats--;
+                        }
+                        if (VärldsLista[yplats][xplats] != 0)
+                        {
+                            break;
+                        }
+                        if (random.Next(0,2)==1)
+                        {
+                            VärldsLista[y-1][xplats] = 9;
+                        }
+                        if (random.Next(0, 2) == 1)
+                        {
+                            VärldsLista[y - 2][xplats] = 9;
+                        }
+                        for (int i2 = 1; i2 < busklängd; i2++)
+                        {
+                            if (VärldsLista[y - 1][xplats + i2] ==0
+                              &&VärldsLista[y][xplats +i2] !=0)
+                            {
+                                VärldsLista[y - 1][xplats + i2] = 9;
+                            }
+                            else if(VärldsLista[y-1][xplats+i2]== 0)
+                            {
+                                break;
+                            }
+                            if (VärldsLista[y - 2][xplats + i2] ==0)
+                            {
+                                VärldsLista[y - 2][xplats + i2] = 9;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                            
+                            if (random.Next(0,2) ==1)
+                            {
+                                if (VärldsLista[y - 3][xplats + i2] ==0)
+                                {
+                                    VärldsLista[y - 3][xplats + i2] = 9;
+
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                       
+                    }
+                }
+            }
+        }
+
         public void träd()
         {
             for (int i = 0; i < VärldsLista.Count()/10; i++)
             {
                 xplats = random.Next(5, VärldsLista[1].Count()-5);
-                for (int y = 10; y < VärldsLista.Count()-20; y++)
+                for (int y = 10; y < VärldsLista.Count()/2; y++)
                 {
                     if (VärldsLista[y][xplats] == 1 && VärldsLista[y - 1][xplats] == 0 ||
                         VärldsLista[y][xplats] == 3 && VärldsLista[y - 1][xplats] == 0)

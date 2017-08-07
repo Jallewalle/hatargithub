@@ -79,6 +79,8 @@ namespace försök_till_bra_spel
 
             skapavärld2.träd();
 
+            skapavärld2.bärbuske();
+
             skapavärld2.sparavärlden();
             skapavärld2.progressBar2.Value += 10;
 
