@@ -157,6 +157,7 @@
     <None Include="Resources\Träd.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Parachute.png" />
     <Content Include="Resources\PlayerModel.png" />
     <None Include="Resources\PlayerModelHopp.png" />
   </ItemGroup>

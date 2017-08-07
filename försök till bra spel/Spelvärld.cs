@@ -23,6 +23,8 @@ namespace försök_till_bra_spel
         bool moveLeft = false;
         bool moveUp = false;
         bool moveDown = false;
+        bool fastRight = false;
+        bool fastLeft = false;
         bool jump = false;
         bool fall = false;
         int move;
@@ -57,6 +59,7 @@ namespace försök_till_bra_spel
         Image Träd = försök_till_bra_spel.Properties.Resources.Träd;
         Image player = försök_till_bra_spel.Properties.Resources.PlayerModel;
         Image playerfall = försök_till_bra_spel.Properties.Resources.PlayerModelHopp;
+        Image fallskärm = försök_till_bra_spel.Properties.Resources.Parachute;
         #endregion
 
         public Spelvärld()
@@ -93,6 +96,7 @@ namespace försök_till_bra_spel
                 if (fall == true)
                 {
                     g.DrawImage(playerfall, playerX * blockstorlek - blockstorlek, playerY * blockstorlek);
+                    g.DrawImage(fallskärm, playerX * blockstorlek - blockstorlek - 34, playerY * blockstorlek - 38);
                 }
                 else
                 {
@@ -104,6 +108,7 @@ namespace försök_till_bra_spel
             {
                 //lel
             }
+
             g.DrawString(move.ToString(), drawFont, Brushes.Black, 0F, 10F);
             g.DrawString(updown.ToString(), drawFont, Brushes.Black, 0F, 30F);
 
@@ -114,34 +119,45 @@ namespace försök_till_bra_spel
             timer1.Enabled = true;
             if (e.KeyCode == Keys.Right)
             {
-                moveRight = true;
+                fastRight = true;
             }
             else if (e.KeyCode == Keys.Left)
             {
-                moveLeft = true;
+                fastLeft = true;
             }
             if (e.KeyCode == Keys.Down)
             {
                 moveDown = true;
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                moveUp = true;
+            }
+
+
+
             else if (e.KeyCode == Keys.W  && jump == false && fall == false)
             {
                 jump = true;
             }
-            else if (e.KeyCode == Keys.Up)
+            else if (e.KeyCode == Keys.D)
             {
-                moveUp = true;
+                moveRight = true;
+            }
+            else if (e.KeyCode == Keys.A)
+            {
+                moveLeft = true;
             }
         }
         private void Spelvärld_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
             {
-                moveRight = false;
+                fastRight = false;
             }
             else if (e.KeyCode == Keys.Left)
             {
-                moveLeft = false;
+                fastLeft = false;
             }
             if (e.KeyCode == Keys.Down)
             {
@@ -150,6 +166,16 @@ namespace försök_till_bra_spel
             if (e.KeyCode == Keys.Up)
             {
                 moveUp = false;
+            }
+
+
+            if (e.KeyCode == Keys.D)
+            {
+                moveRight = false;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                moveLeft = false;
             }
         }
 
@@ -314,7 +340,15 @@ namespace försök_till_bra_spel
             #region move up
             if (moveUp)
             {
-                updown -= movespeedx;
+                updown -= movespeedy;
+            }
+            if (fastRight && move < Värld[1].Count - width - 1)
+            {
+                move += movespeedx;
+            }
+            if (fastLeft && move > 0)
+            {
+                move -= movespeedx;
             }
             #endregion
 
