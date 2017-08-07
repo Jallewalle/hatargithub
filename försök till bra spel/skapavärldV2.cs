@@ -925,42 +925,35 @@ namespace försök_till_bra_spel
                         {
                             VärldsLista[y-i2 -1][xplats] = 8;
                         }// gör ett träd!
-                        if (slump >5)
+                        if (slump > 5)
                         {
-                            VärldsLista[y - slump - 3][xplats] = 9;
-                            VärldsLista[y - slump - 2][xplats-1] = 9;
-                            VärldsLista[y - slump - 2][xplats] = 9;
-                            VärldsLista[y - slump - 2][xplats+1] = 9;
-                            VärldsLista[y - slump - 1][xplats - 2] = 9;
-                            VärldsLista[y - slump - 1][xplats - 1] = 9;
-                            VärldsLista[y - slump - 1][xplats] = 9;
-                            VärldsLista[y - slump - 1][xplats + 1] = 9;
-                            VärldsLista[y - slump - 1][xplats + 2] = 9;
-                            VärldsLista[y - slump][xplats - 3] = 9;
-                            VärldsLista[y - slump][xplats - 2] = 9;
-                            VärldsLista[y - slump][xplats - 1] = 9;
-                            VärldsLista[y - slump][xplats + 1] = 9;
-                            VärldsLista[y - slump][xplats + 2] = 9;
-                            VärldsLista[y - slump][xplats + 3] = 9;
-                            VärldsLista[y - slump + 1][xplats - 2] = 9;
-                            VärldsLista[y - slump + 1][xplats - 1] = 9;
-                            VärldsLista[y - slump + 1][xplats + 1] = 9;
-                            VärldsLista[y - slump + 1][xplats + 2] = 9;
-                            VärldsLista[y - slump + 2][xplats - 1] = 9;
-                            VärldsLista[y - slump + 2][xplats + 1] = 9;
+                            int trädindex = 3;
+                            while (trädindex > -3)
+                            {
+                                for (int i3 = 0; i3 <(3-Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2)))*2+1; i3++)
+                                {
+                                    if (VärldsLista[y - slump - trädindex][xplats + i3 - 3 + Convert.ToInt32(Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2)))] == 0)
+                                    {
+                                        VärldsLista[y - slump - trädindex][xplats + i3 - 3 +  Convert.ToInt32( Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2)))] = 9;
+                                    }
+                                }
+                                trädindex--;
+                            }
                         }
                         else
                         {
-                            VärldsLista[y - slump - 1][xplats] = 9;
-                            VärldsLista[y - slump - 2][xplats] = 9;
-                            VärldsLista[y - slump - 1][xplats - 1] = 9;
-                            VärldsLista[y - slump - 1][xplats + 1] = 9;
-                            VärldsLista[y - slump][xplats - 2] = 9;
-                            VärldsLista[y - slump][xplats - 1] = 9;
-                            VärldsLista[y - slump][xplats + 1] = 9;
-                            VärldsLista[y - slump][xplats + 2] = 9;
-                            VärldsLista[y - slump + 1][xplats - 1] = 9;
-                            VärldsLista[y - slump + 1][xplats + 1] = 9;
+                            int trädindex = 2;
+                            while (trädindex > -2)
+                            {
+                                for (int i3 = 0; i3 < (2 - Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2))) * 2 + 1; i3++)
+                                {
+                                    if (VärldsLista[y - slump - trädindex][xplats + i3 - 2 + Convert.ToInt32(Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2)))] == 0)
+                                    {
+                                        VärldsLista[y - slump - trädindex][xplats + i3 - 2 + Convert.ToInt32(Math.Sqrt(Math.Pow(Convert.ToDouble(trädindex), 2)))] = 9;
+                                    }
+                                }
+                                trädindex--;
+                            }
                         }
                         yplats = 0;
                         
