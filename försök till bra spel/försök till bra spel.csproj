@@ -130,9 +130,6 @@
     <None Include="Resources\Tbd.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LAVA.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Water.png" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Dirt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TopGrass.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TopWater.png" />
@@ -157,7 +151,9 @@
     <None Include="Resources\Träd.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\TopGrass.png" />
     <None Include="Resources\Parachute.png" />
+    <None Include="Resources\LAVA.png" />
     <Content Include="Resources\PlayerModel.png" />
     <None Include="Resources\PlayerModelHopp.png" />
   </ItemGroup>
